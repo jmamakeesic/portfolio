@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+      <title>Slideshow</title>
+      <h:outputStylesheet name="css/styles.css"/>
+      <h:outputScript name="js/slideshow.js" target="head"/>
+    </h:head>
+    <h:body onload="init()">
+      <h:graphicImage id="banner" name="img/banner.jpg"/>
+      <div id="content">
+        <nav><h:outputLink value="../index.htm"> Back </h:outputLink></nav>
+        <h1>Slideshow</h1>
+      </div>
+      <div id="panel"><h:form>
+        <h:selectOneMenu onchange="action(this.value)" >
+          <f:selectItem itemValue="slide" itemLabel="Slide"   />
+          <f:selectItem itemValue="dslv"  itemLabel="Dissolve"/>
+          <f:selectItem itemValue="fade"  itemLabel="Fade"    />
+          <f:selectItem itemValue="none"  itemLabel="None"    />
+        </h:selectOneMenu>
+        <h:commandButton type="button" onclick="action('back')" id="b" value="❮"/>
+        <h:commandButton type="button" onclick="action('stop')" id="s" value="◼" style="pointer-events:none;"/>
+        <h:commandButton type="button" onclick="action('play')" id="p" value="▶"/>
+        <h:commandButton type="button" onclick="action('next')" id="n" value="❯"/>
+        <h:commandButton type="button" onclick="action('rand')" id="rand"
+                         style="position:absolute;right:10px;" value="⤮"/>
+      </h:form></div>
+      <h2 id="title"></h2>
+      <canvas id="canvas" width="800" height="600">
+        Your browser does not support Canvas.
+      </canvas>
+      <footer>&copy;2019 Jonah Mamakeesic</footer>
+    </h:body>
+</html>
+

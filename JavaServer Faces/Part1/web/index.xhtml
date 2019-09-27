@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Visit Counter</title>
+        <link rel="stylesheet" type="text/css" href="resources/styles.css"/>
+        <script>
+            var visits = document.cookie.replace(/(?:(?:^|.*;\s*)visits\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+            function incVisits(){
+                visits++;
+                document.getElementById("visits").innerHTML=visits;
+                document.cookie = "visits="+visits+";path=/;max-age=60*60*24*365"; // 1 year TTL
+            }
+        </script>
+    </h:head>
+    <h:body onload="incVisits()">
+        <img id="banner" src="resources/banner.jpg" alt=""/>
+        <div id="content">
+            <nav><a href="../index.htm">Back</a></nav>
+            <h1>Visit Counter</h1>
+            <p>
+                You have visited this page <span id="visits"></span> times.
+            </p><p>
+                Your IP address is: <span id="ip">#{cookieBean.getIp()}</span>
+            </p><p>
+                Your Timezone is: <span id="timezone">#{cookieBean.getTimezone()}</span>.
+            </p>
+        </div>
+        <footer>&copy;2019 Jonah Mamakeesic</footer>
+    </h:body>
+</html>
+

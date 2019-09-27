@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaServer Faces</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="shared/styles.css">
+    <style>
+      #content{
+        padding-bottom: 25px;
+      }
+      #projectinfo td{
+        padding-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="banner" src="shared/banner.jpg" alt=""/>
+    <div id="content">
+      <h1>JavaServer Faces</h1>
+
+      <h2>Project Details</h2>
+      <p>
+        This is a demonstration of JavaServer Faces for server-side processing
+        and database management.
+      </p>
+      <p>
+        <b>Part 1</b> tracks how many times a user visits the webpage using
+        session tracking, and displays their IP address and timezone.
+      </p>
+      <p>
+        <b>Part 2</b> is a picture slideshow with navagation controls and captions.
+      </p>
+      <p>
+        <b>Part 3</b> is an online custom computer order form with hardcoded
+        product information and session-tracked customer data.
+      </p>
+
+      <h2>Analysis and Design</h2>
+      <p>
+        <b>Part 1</b> tracks the session using the cookieBean.
+      </p>
+      <p>
+        <b>Part 2</b> contains a database of image names, urls, and captions.
+      </p>
+      <p>
+        <b>Part 3</b> models popular online stores such as Amazon and Bestbuy.
+        These sites have product pages with prices, specifications, colour/size 
+        variations, and reviews. When added to the shopping cart, the websites
+        display the order subtotal, tax, shipping, and total amounts before 
+        checking out. My store has similar functionalities on a smaller scale.
+      </p>
+      <img src="shared/mockup.jpg" alt="" width="750"/>
+      <p>
+        The site requires a Component class that contains all the product data
+        organized by type, including model, price, and specifications. The
+        computer is represented by a Component array during customization, and 
+        then copied to another array when added to the cart, allowing further
+        customization without accidentally affecting the cart.
+      </p>
+      <p>
+        Functions include getter/setters for each component, and 
+        subtotal/tax/shipping/total calculations. Ajax tags in each selection 
+        menu update the form as options are modified.
+      </p>
+
+      <h2>Content</h2>
+      <p>
+        <a href="part1/web/index.xhtml"> Part 1 - Visit Counter</a><br/>
+        <a href="part2/web/index.xhtml"> Part 2 - Slideshow</a><br/>
+        <a href="part3/web/index.xhtml"> Part 3 - Computer Store</a>
+      </p>
+
+    </div>
+  </body>
+</html>

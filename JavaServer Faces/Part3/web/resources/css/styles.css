@@ -1,0 +1,166 @@
+@charset "UTF-8";
+@font-face{
+  font-family: Muli-Regular;
+  src: url("../fonts/Muli-Regular.ttf") format("truetype");
+}
+@font-face{
+  font-family: Gill-Sans;
+  src: url("../fonts/gill-sans.ttf") format("truetype");
+}
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body{
+  font-family: Muli-Regular, sans-serif;
+  width: 800px;
+  margin: 0 auto 25px;
+  background: #333 url("../img/tile.gif") fixed;
+  box-shadow: 0 10px 40px -10px black;
+}
+#banner{
+  margin-bottom: -4px;
+}
+#content{
+  padding: 35px 25px;
+  background-color: white;
+}
+h1{
+  text-shadow: 2px 0 2px black,
+              -2px 0 2px black;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 150px;
+  background-color: transparent;
+  color: #fff;
+}
+h2{
+  font-size: 1.2em;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #335;
+}
+h3{
+  font-size: 1em;
+  margin: 0 0 .5em 1em;
+}
+p{
+  margin: 0 0 .5em 1em;
+}
+a, a:visited{
+  color: #aaa;
+}
+a:active, a:hover{
+  color: #fff;
+}
+#back{
+  position: absolute; 
+  top: 10px; 
+  left: 50%;
+  margin-left: -375px;
+  text-decoration: none;
+}
+nav a, nav a:visited{
+  text-decoration: none;
+  color: #ddc;
+}
+nav a:active, nav a:hover{
+  color: #fff;
+}
+#this{
+  color: white;
+}
+nav{
+  background-image: url("../img/menu.jpg");
+  height: 25px;
+  width: 800px;
+  position: absolute;
+  top: 200px;
+  letter-spacing: 2px;
+}
+nav *{
+  background-color: transparent;
+  display: inline;
+  font-size: 1.1em;
+  margin-left: 1em;
+  position: relative;
+  left: 235px;
+  text-shadow: 0  .5px 1px #bca,
+               0 -.5px 1px #000;
+}
+footer{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: #999;
+  height: 0px;
+  overflow: visible;
+}
+
+/* CONFIGURATION PANEL */
+table{
+  width: 375px;
+  margin: 0 auto;
+  background-color: #db7;
+  border-spacing: 0;
+  margin-top: 25px;
+}
+td{
+  padding:5px;
+}
+select{
+  width:110px;  
+}
+th,tfoot{
+  background-color: white;
+  padding-bottom: 5px;
+  margin-top: 10px;
+}
+thead input{
+  display: inline;
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+div > input{
+  margin: 0 5px;
+}
+input{
+  display: block;
+  margin: 0 auto;
+  color: white;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-image: linear-gradient        (top, #cba 0%, #864 30%, #321 100%);
+  background-image: -o-linear-gradient     (top, #cba 0%, #864 30%, #321 100%);
+  background-image: -ms-linear-gradient    (top, #cba 0%, #864 30%, #321 100%);
+  background-image: -moz-linear-gradient   (top, #cba 0%, #864 30%, #321 100%);
+  background-image: -webkit-linear-gradient(top, #cba 0%, #864 30%, #321 100%);
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+input:hover{
+  background-image: linear-gradient        (top, #edc 0%, #a86 30%, #321 100%);
+  background-image: -o-linear-gradient     (top, #edc 0%, #a86 30%, #321 100%);
+  background-image: -ms-linear-gradient    (top, #edc 0%, #a86 30%, #321 100%);
+  background-image: -moz-linear-gradient   (top, #edc 0%, #a86 30%, #321 100%);
+  background-image: -webkit-linear-gradient(top, #edc 0%, #a86 30%, #321 100%);
+}
+td:nth-child(1){ /* component label */
+  font-weight: bold;
+  width: 120px;
+  padding-left: 25px;
+}
+td:nth-child(2){ /* component selector */
+  width: 150px;
+}
+td:nth-child(3){ /* component price */
+  width: 120px;
+  padding-right: 25px;
+}

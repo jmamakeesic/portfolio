@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <h:head>
+    <title>Build - JSM Custom Computers</title>
+    <h:outputStylesheet name="css/styles.css"/>
+  </h:head>
+  <h:body onload="#{storeBean.build()}">
+    <h:graphicImage id="banner" name="img/banner.jpg"/>
+    <h:outputLink id="back" value="../index.htm"> Back </h:outputLink>
+      <nav>
+        <h:outputLink value="index.xhtml"  > Home    </h:outputLink>
+        <h:outputLink id="this"            > Build   </h:outputLink>
+        <h:outputLink value="reviews.xhtml"> Reviews </h:outputLink>
+        <h:outputLink value="cart.xhtml"   > Cart    </h:outputLink>
+      </nav>
+    <div id="content">
+      <h1>Build a System</h1>
+      <h2></h2>
+      <p>
+        The Minimal configuration is a good starting place for those on a budget
+        who just need to get up and running without a lot of power. Perfect for
+        word processing, email, and web browsing.
+      </p>
+      <p>
+        The Typical configuration should suit most user's needs, with enough power
+        to multitask most types of applications, such as games and media players.
+      </p>
+      <p>
+        The Deluxe configuration consists of our best components! It is the fastest
+        and most powerful system we have to offer, suitable for even the most 
+        processing-heavy and memory-hungry applications, such as video rendering.
+      </p>
+      <h:form>
+        <h:panelGrid id="panel" columns="3">
+          <f:facet name="header">
+            <h:outputText value="Presets:"/>
+            <h:commandButton value="Minimal" action="#{storeBean.loadPreset(0,0,0,0,0,0)}">
+              <f:ajax render="@form"/>
+            </h:commandButton>
+            <h:commandButton value="Typical" action="#{storeBean.loadPreset(1,3,1,2,2,1)}">
+              <f:ajax render="@form"/>
+            </h:commandButton>
+            <h:commandButton value="Deluxe"  action="#{storeBean.loadPreset(3,5,3,6,3,2)}">
+              <f:ajax render="@form"/>
+            </h:commandButton>
+          </f:facet>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+          
+          <h:outputLabel value="CPU"/>
+          <h:selectOneMenu value="#{storeBean.cpu}" title="#{storeBean.build()[0].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="i3-8100B" />
+            <f:selectItem itemValue="1" itemLabel="i5-8250U" />
+            <f:selectItem itemValue="2" itemLabel="i7-8750H" />
+            <f:selectItem itemValue="3" itemLabel="i9-8950HK"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[0].getPrice()}"/>
+          
+          <h:outputLabel value="RAM"/>
+          <h:selectOneMenu value="#{storeBean.ram}" title="#{storeBean.build()[1].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="1 x 4GB" />
+            <f:selectItem itemValue="1" itemLabel="2 x 4GB" />
+            <f:selectItem itemValue="2" itemLabel="1 x 8GB" />
+            <f:selectItem itemValue="3" itemLabel="2 x 8GB" />
+            <f:selectItem itemValue="4" itemLabel="1 x 16GB"/>
+            <f:selectItem itemValue="5" itemLabel="2 x 16GB"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[1].price}"/>
+          
+          <h:outputLabel value="GPU"/>
+          <h:selectOneMenu value="#{storeBean.gpu}" title="#{storeBean.build()[2].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="UHD 630" />
+            <f:selectItem itemValue="1" itemLabel="MX 150"  />
+            <f:selectItem itemValue="2" itemLabel="GTX 1050"/>
+            <f:selectItem itemValue="3" itemLabel="GTX 1080"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[2].price}"/>
+          
+          <h:outputLabel value="Storage"/>
+          <h:selectOneMenu value="#{storeBean.sto}" title="#{storeBean.build()[3].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="500GB HDD"/>
+            <f:selectItem itemValue="1" itemLabel="1TB HDD"  />
+            <f:selectItem itemValue="2" itemLabel="2TB HDD"  />
+            <f:selectItem itemValue="3" itemLabel="500GB SSD"/>
+            <f:selectItem itemValue="4" itemLabel="1TB SSD"  />
+            <f:selectItem itemValue="5" itemLabel="2TB SSD"  />
+            <f:selectItem itemValue="6" itemLabel="4TB SSD"  />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[3].price}"/>
+          
+          <h:outputLabel value="Display"/>
+          <h:selectOneMenu value="#{storeBean.dis}" title="#{storeBean.build()[4].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="WXGA Matte" />
+            <f:selectItem itemValue="1" itemLabel="WXGA Glossy"/>
+            <f:selectItem itemValue="2" itemLabel="FHD Matte"  />
+            <f:selectItem itemValue="3" itemLabel="FHD Glossy" />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[4].price}"/>
+          
+          <h:outputLabel value="OS"/>
+          <h:selectOneMenu value="#{storeBean.os}" title="#{storeBean.build()[5].getInfo()}">
+            <f:selectItem itemValue="0" itemLabel="Linux Mint" />
+            <f:selectItem itemValue="1" itemLabel="Win 10 Home"/>
+            <f:selectItem itemValue="2" itemLabel="Win 10 Pro" />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.build()[5].price}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+          
+          <h:outputLabel value="Subtotal"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.subtotal}"/>
+          
+          <h:outputLabel value="Tax"/>
+          <h:selectOneMenu value="#{storeBean.province}">
+            <f:selectItem itemValue="0" itemLabel="AB - 5%" />
+            <f:selectItem itemValue="1" itemLabel="BC - 12%"/>
+            <f:selectItem itemValue="2" itemLabel="MB - 13%"/>
+            <f:selectItem itemValue="3" itemLabel="NB - 15%"/>
+            <f:selectItem itemValue="4" itemLabel="NL - 15%"/>
+            <f:selectItem itemValue="5" itemLabel="NS - 15%"/>
+            <f:selectItem itemValue="6" itemLabel="ON - 13%"/>
+            <f:selectItem itemValue="7" itemLabel="PE - 15%"/>
+            <f:selectItem itemValue="8" itemLabel="QU - 15%"/>
+            <f:selectItem itemValue="9" itemLabel="SK - 11%"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="$#{storeBean.tax}"/>
+          
+          <h:outputLabel value="Shipping"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.shipping}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+          
+          <h:outputLabel value="Total"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.total}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+          
+        </h:panelGrid>
+        <svg height="1" width="375" style="position:relative;top:-160px;overflow:visible">
+          <line x1="202" x2="547" y1="0"   y2="0"   style="stroke:black;stroke-width:.7"/>
+          <line x1="202" x2="547" y1="102" y2="102" style="stroke:black;stroke-width:.7"/>
+        </svg>
+        <h:button value="#{storeBean.cartLabel}" outcome="cart" onclick="#{storeBean.addToCart()}"/>
+      </h:form>
+    </div>
+    <footer>&copy;2019 Jonah Mamakeesic</footer>
+  </h:body>
+</html>
+

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <h:head>
+    <title>Reviews - JSM Custom Computers</title>
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/favicon.ico']}"/>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:outputStylesheet>
+      table{margin:0 0 0 25px; width:700px;}
+      td:nth-child(1){padding:10px; font-weight:normal; font-style:italic;}
+    </h:outputStylesheet>
+  </h:head>
+  <h:body>
+    <h:graphicImage id="banner" name="img/banner.jpg"/>
+    <h:outputLink id="back" value="../index.htm"> Back </h:outputLink>
+      <nav>
+        <h:outputLink value="index.xhtml"> Home    </h:outputLink>
+        <h:outputLink value="build.xhtml"> Build   </h:outputLink>
+        <h:outputLink id="this"          > Reviews </h:outputLink>
+        <h:outputLink value="cart.xhtml" > Cart    </h:outputLink>
+      </nav>
+    <div id="content" style="padding-top:50px; padding-bottom:25px;">
+      <h1>Component Reviews</h1>
+      <h3 style="display:inline; margin:0 10px 0 205px;">Select a component:</h3>
+      <h:form style="display:inline;">
+        <h:selectOneMenu value="#{storeBean.reviewType}" 
+                         style="width:70px; margin-right:10px;">
+          <f:selectItem itemValue="0" itemLabel="CPU"    />
+          <f:selectItem itemValue="1" itemLabel="RAM"    />
+          <f:selectItem itemValue="2" itemLabel="GPU"    />
+          <f:selectItem itemValue="3" itemLabel="Storage"/>
+          <f:selectItem itemValue="4" itemLabel="Display"/>
+          <f:selectItem itemValue="5" itemLabel="OS"     />
+          <f:ajax render="@form"/>
+        </h:selectOneMenu>
+        
+        <h:panelGroup>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==0}">
+            <f:selectItem itemValue="0" itemLabel="i3-8100B" />
+            <f:selectItem itemValue="1" itemLabel="i5-8250U" />
+            <f:selectItem itemValue="2" itemLabel="i7-8750H" />
+            <f:selectItem itemValue="3" itemLabel="i9-8950HK"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==1}">
+            <f:selectItem itemValue="0" itemLabel="1 x 4GB" />
+            <f:selectItem itemValue="1" itemLabel="2 x 4GB" />
+            <f:selectItem itemValue="2" itemLabel="1 x 8GB" />
+            <f:selectItem itemValue="3" itemLabel="2 x 8GB" />
+            <f:selectItem itemValue="4" itemLabel="1 x 16GB"/>
+            <f:selectItem itemValue="5" itemLabel="2 x 16GB"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==2}">
+            <f:selectItem itemValue="0" itemLabel="UHD 630" />
+            <f:selectItem itemValue="1" itemLabel="MX 150"  />
+            <f:selectItem itemValue="2" itemLabel="GTX 1050"/>
+            <f:selectItem itemValue="3" itemLabel="GTX 1080"/>
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==3}">
+            <f:selectItem itemValue="0" itemLabel="500GB HDD"/>
+            <f:selectItem itemValue="1" itemLabel="1TB HDD"  />
+            <f:selectItem itemValue="2" itemLabel="2TB HDD"  />
+            <f:selectItem itemValue="3" itemLabel="500GB SSD"/>
+            <f:selectItem itemValue="4" itemLabel="1TB SSD"  />
+            <f:selectItem itemValue="5" itemLabel="2TB SSD"  />
+            <f:selectItem itemValue="6" itemLabel="4TB SSD"  />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==4}">
+            <f:selectItem itemValue="0" itemLabel="WXGA Matte" />
+            <f:selectItem itemValue="1" itemLabel="WXGA Glossy"/>
+            <f:selectItem itemValue="2" itemLabel="FHD Matte"  />
+            <f:selectItem itemValue="3" itemLabel="FHD Glossy" />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+          <h:selectOneMenu value="#{storeBean.reviewModel}" 
+                           rendered="#{storeBean.reviewType==5}">
+            <f:selectItem itemValue="0" itemLabel="Linux Mint" />
+            <f:selectItem itemValue="1" itemLabel="Win 10 Home"/>
+            <f:selectItem itemValue="2" itemLabel="Win 10 Pro" />
+            <f:ajax render="@form"/>
+          </h:selectOneMenu>
+        </h:panelGroup>
+
+        <h2><h:outputText value="#{storeBean.component}"/></h2>
+        <p>&nbsp;&nbsp;Users said...</p>
+        <h:dataTable rendered="#{storeBean.reviews.size()>0}"
+                     value="#{storeBean.reviews}" var="review">
+          <h:column>"<h:outputText value="#{review}"/>"</h:column>
+        </h:dataTable>
+        <p><h:outputText rendered="#{storeBean.reviews.size()==0}"
+                         value="There are no user reviews for this product."/></p>
+        <div style="height:15px;"/>
+        <h3 style="display: inline">Add a review:</h3>
+        <h:inputTextarea id="newReview"
+                         style="width:500px; height:60px; outline:solid black 1px; 
+                                vertical-align:top; margin:0 010px 10px;
+                                padding: 10px;"/>
+        <h:commandButton value="Add Review" action="#{storeBean.addReview(newReview.value)}">
+          <f:ajax render="@form"/>
+        </h:commandButton>
+      </h:form>
+    </div>
+    <footer>&copy;2019 Jonah Mamakeesic</footer>
+  </h:body>
+</html>
+

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <h:head>
+    <title>Cart - JSM Custom Computers</title>
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/favicon.ico']}"/>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:outputStylesheet>
+      table{margin-top:0;}
+    </h:outputStylesheet>
+  </h:head>
+  <h:body>
+    <h:graphicImage id="banner" name="img/banner.jpg"/>
+    <h:outputLink id="back" value="../index.htm"> Back </h:outputLink>
+      <nav>
+        <h:outputLink value="index.xhtml"  > Home    </h:outputLink>
+        <h:outputLink value="build.xhtml"  > Build   </h:outputLink>
+        <h:outputLink value="reviews.xhtml"> Reviews </h:outputLink>
+        <h:outputLink id="this"            > Cart    </h:outputLink>
+      </nav>
+    <div id="content">
+      <h1>Shopping Cart</h1>
+      <h:outputText rendered="#{storeBean.cart==null}">
+        There is nothing in your cart!
+      </h:outputText>
+      <h:panelGroup rendered="#{storeBean.cart!=null}">
+        <h2>Order Summary:</h2>
+        <h:panelGrid columns="3">
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+          <h:outputLabel value="CPU"/>
+          <h:outputLabel value=" #{storeBean.build()[0].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[0].getPrice()}"/>
+          <h:outputLabel value="RAM"/>
+          <h:outputLabel value=" #{storeBean.build()[1].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[1].getPrice()}"/>
+          <h:outputLabel value="GPU"/>
+          <h:outputLabel value=" #{storeBean.build()[2].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[2].getPrice()}"/>
+          <h:outputLabel value="Storage"/>
+          <h:outputLabel value=" #{storeBean.build()[3].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[3].getPrice()}"/>
+          <h:outputLabel value="Display"/>
+          <h:outputLabel value=" #{storeBean.build()[4].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[4].getPrice()}"/>
+          <h:outputLabel value="OS"/>
+          <h:outputLabel value=" #{storeBean.build()[5].getModel()}"/>
+          <h:outputLabel value="$#{storeBean.build()[5].getPrice()}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+
+          <h:outputLabel value="Subtotal"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.subtotal}"/>
+          <h:outputLabel value="Tax"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.tax}"/>
+          <h:outputLabel value="Shipping"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.shipping}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+
+          <h:outputLabel value="Total"/><h:outputLabel/>
+          <h:outputLabel value="$#{storeBean.total}"/>
+          <h:outputLabel/><h:outputLabel/><h:outputLabel/>
+        </h:panelGrid>
+        <svg height="1" width="375" style="position:relative;top:-160px;overflow:visible">
+          <line x1="202" x2="547" y1="0"   y2="0"   style="stroke:black;stroke-width:.7"/>
+          <line x1="202" x2="547" y1="102" y2="102" style="stroke:black;stroke-width:.7"/>
+        </svg>
+        <div style="display:flex; justify-content:center;   ">
+          <h:button value="Back" outcome="build"/>
+          <h:button value="Delete" outcome="build" onclick="#{storeBean.emptyCart()}"/>
+          <h:button value="Checkout"/>
+        </div>
+      </h:panelGroup>
+    </div>
+    <footer>&copy;2019 Jonah Mamakeesic</footer>
+  </h:body>
+</html>
+
