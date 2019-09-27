@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<x:schema targetNamespace="."
+          xmlns="."
+          xmlns:x="http://www.w3.org/2001/XMLSchema"
+          xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<x:import namespace="http://www.w3.org/1999/xhtml"
+          schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
+<x:complexType name="Xhtml">
+  <x:complexContent>
+    <x:extension base="xhtml:Block">
+      <x:attributeGroup ref="xhtml:attrs"/>
+    </x:extension>
+  </x:complexContent>
+</x:complexType>
+
+<x:element name="course" type="Course" minOccurs="1" maxOccurs="unbounded">
+  <x:complexType>
+    <x:attribute name="code"        use="required" type="x:int"/>
+    <x:attribute name="title"       use="required" type="x:int"/>
+    <x:attribute name="author"      use="required" type="x:int"/>
+    <x:attribute name="description" use="required" type="x:string"/>
+    <x:sequence>
+      <x:element name="unit" type="Unit" minOccurs="1" maxOccurs="unbounded">
+        <x:complexType>
+          <x:attribute name="num"   type="x:positiveInteger" use="required"/>
+          <x:attribute name="title" type="x:string"          use="required"/>
+          <x:sequence>
+            <x:element name="summary" type="Summary">
+              <x:simpleType><x:restriction base="x:string"/></x:simpleType>
+            </x:element>
+            <x:element name="lesson" type="Xhtml"/>
+            <x:element name="quiz" type="Quiz">
+              <x:complexType>
+                <x:sequence>
+                  <x:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded">
+                    <x:complexType>
+                      <x:sequence>
+                        <x:element name="prompt" type="Xhtml"/>
+                        <x:choice maxOccurs="4">
+                          <x:element name="true" type="Xhtml"/>
+                          <x:element name="false" type="Xhtml" minOccurs="1" maxOccurs="3"/>
+                        </x:choice>
+                      </x:sequence>
+                    </x:complexType>
+                  </x:element>
+                </x:sequence>
+              </x:complexType>
+            </x:element>
+          </x:sequence>
+        </x:complexType>
+      </x:element>
+    </x:sequence>
+  </x:complexType>
+</x:element>
+</x:schema>

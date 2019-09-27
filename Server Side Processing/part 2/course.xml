@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course code="COMP-LWT"
+        title="Learning Web Technologies"
+        author="Jonah Mamakeesic"
+        description="This application has been created to teach the basics of
+          several key web technologies in modern web development. The subjects
+          are organized into three units and contain tutorials and quizzes.">
+  <unit num="1" title="HTML / CSS">
+    <summary>
+      Here we learn the fundamentals of web design.
+      HTML is the most common technology for creating web content,
+      and CSS helps us make it visually appealing!
+    </summary>
+    <lesson>
+      <p>
+        Every HTML document must start with a document type declaration: <code>
+        &lt;!DOCTYPE html&gt;</code>. The remaining content is enclosed in
+        <code>&lt;html&gt;</code> tags. Inside these tags are two primary sections,
+        enclosed in <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.
+        The <code>&lt;head&gt;</code> sections contains information about the
+        webpage such as the title, author, description, and keywords, which are
+        used in web searches, as well as metadata, stylesheets, and scripts. The
+        <code>&lt;body&gt;</code> section contains everything that is to be
+        displayed on the webpage, such as text, hyperlinks, images, videos,
+        animations, or embedded applications. All HTML tags must be closed, with
+        a matching <code>&lt;/...&gt;</code> tag, or in some cases, by using a
+        self-closing format: <code>&lt;... /&gt;</code>.
+      </p>
+      <p>
+        There have been five versions of HTML that have been released, the most
+        recent being verion 5, with additional tags being supported, and old ones
+        being depricated to comply with changing standards. Many tags that were
+        once commonly used have been replaced by CSS formatting.
+      </p>
+      <p>
+        Tables were once a popular way to build entire web pages, but now they
+        are reserved for tabular data to increase flexability between widely
+        varying screen sizes, from smartphones to large high definition monitors.
+        A table is enclosed in <code>&lt;table&gt;</code> tags, then each row is
+        created by <code>&lt;tr&gt;</code> tags, and then individual cells with
+        <code>&lt;td&gt;</code>. The first row of a table can instead be designated
+        with <code>&lt;th&gt;</code> tags, to be treated separately as a table
+        header when applicable.
+      </p>
+      <p>
+        Text can be enclosed in a variety of tags depending on the context. Titles
+        should be enclosed in heading tags, <code>&lt;h1&gt;</code> to <code>
+        &lt;h6&gt;</code>, depending on their intended emphasis. <code>&lt;h1&gt;
+        </code> designates the main title, <code>&lt;h2&gt;</code> designates
+        secondary titles, and so on. Paragraphs are enclosed in <code>&lt;p&gt;
+        </code> tags, and lists in <code>&lt;ol&gt;</code> or <code>&lt;ul&gt;
+        </code> tags for ordered or unordered lists, with list items designated by
+        <code>&lt;li&gt;</code> tags.
+      </p>
+      <p>
+        Hyperlinks are enclosed in <code>&lt;a&gt;</code> tags, images with <code>
+        &lt;img&gt;</code> tags, and buttons with <code>&lt;button&gt;</code> tags.
+        These objects however, require additional attributes to be meaningful.
+        Inside of the opening tag, a hyperlink needs a destination address, an image
+        needs an image address, and a button needs an action. These attributes are
+        written like this: <code>&lt;a href="URL"&gt;</code>, <code>&lt;img
+        src="URL"/&gt;</code>, and <code>&lt;button onclick="ACTION"&gt;</code>,
+        where URL is an address and ACTION is an action.
+      </p>
+      <p>
+        CSS was developed to separate web page formatting into its own document.
+        This allows changes to be made quickly, as one does not need to scan through
+        an HTML file to find the elements to be modified. Multiple elements can be
+        adjusted at once, even across multiple pages that share a CSS document.
+      </p>
+      <p>
+        There are three methods that CSS can be applied to an HTML document: inline,
+        internal, or external. Inline CSS is applied as a <code>style</code>
+        attribute of a tag in the HTML document, and only affects the element it is
+        contained in. This method is discouraged though, as it negates the
+        efficiency of CSS. Internal CSS is put in the <code>&lt;head&gt;</code>
+        section, wrapped in <code>&lt;style&gt;</code> tags, and affects the entire
+        document. But for maximum versatility, external CSS is applied in a separate
+        document all together, allowing it to be linked to any number of HTML
+        documents. An external CSS file is referenced in the <code>&lt;head&gt;
+        </code> section with the following code: <code>&lt;link rel="stylesheet"
+        type="text/css" href="URL" /&gt;</code>, where URL is the address of the CSS
+        file. We will assume external CSS is being used for the remainder of the
+        discussion.
+      </p>
+      <p>
+        Any tag in an HTML document can referenced by CSS and all matching tags
+        are affected at once. If this behaviour is too broad, specific tags can
+        be given a <code>class</code> or <code>id</code> attribute and then be
+        referenced in groups or individually. For example, <code>p{color:red}</code>
+        will colour all paragraph elements red, but <code>p.red{color:red}</code>
+        will only colour paragraph elements given the class 'red'. Similarly,
+        <code>#red{color:red}</code> will only colour a single element, because
+        each <code>id</code> can only be applied once in an HTML document.
+      </p>
+      <p>
+        Sections of HTML code can be enclosed in <code>&lt;div&gt;</code> or <code>
+        &lt;span&gt;</code> tags, and then given <code>class</code> or <code>id
+        </code> attributes to style the entire section as one element. The
+        difference between these two tags is that <code>&lt;div&gt;</code> will
+        separate its content from the preceding and following code, where <code>
+        &lt;span&gt;</code> will maintain continuity of the code. For this reason,
+        <code>&lt;div&gt;</code> is more suited for wrapping complete sections and
+        <code>&lt;span&gt;</code> is better for use within sections, such as
+        paragraphs.
+      </p>
+      <p>
+        That wraps up basic HTML and CSS formatting. Now that you know how to
+        build an HTML document and style it using CSS, its time for a quiz!
+      </p>
+    </lesson>
+    <quiz>
+      <question>
+        <prompt> What tag encloses all the HTML content? </prompt>
+        <false> &amp;lt;head&amp;gt; </false>
+        <false> &amp;lt;div&amp;gt; </false>
+        <true> &amp;lt;html&amp;gt; </true>
+        <false> &amp;lt;body&amp;gt; </false>
+      </question>
+      <question>
+        <prompt> What is the latest version of HTML? </prompt>
+        <false> There is only one version </false>
+        <false> HTML4 </false>
+        <true> HTML5 </true>
+        <false> XHTML </false>
+      </question>
+      <question>
+        <prompt> HTML Tables are best used for... </prompt>
+        <false> formatting websites </false>
+        <true> tabular data </true>
+        <false> databases </false>
+        <false> eating dinner </false>
+      </question>
+      <question>
+        <prompt> The &amp;lt;a&amp;gt; tag is used for inserting... </prompt>
+        <false> images </false>
+        <false> titles </false>
+        <false> lists </false>
+        <true> links </true>
+      </question>
+      <question>
+        <prompt> Which tag requires additional attributes to be useful? </prompt>
+        <true> &amp;lt;img&amp;gt; </true>
+        <false> &amp;lt;table&amp;gt; </false>
+        <false> &amp;lt;h1&amp;gt; </false>
+        <false> &amp;lt;body&amp;gt; </false>
+      </question>
+      <question>
+        <prompt> Which tag encloses an <i>internal</i> stylesheet? </prompt>
+        <false> &amp;lt;internal&amp;gt; </false>
+        <false> &amp;lt;stylesheet&amp;gt; </false>
+        <true> &amp;lt;style&amp;gt; </true>
+        <false> &amp;lt;link&amp;gt; </false>
+      </question>
+      <question>
+        <prompt> CSS can be implemented in how many ways? </prompt>
+        <false> 4 </false>
+        <true> 3 </true>
+        <false> 2 </false>
+        <false> 1 </false>
+      </question>
+      <question>
+        <prompt> Which tag connects an external stylesheet? </prompt>
+        <false> &amp;lt;external&amp;gt; </false>
+        <false> &amp;lt;stylesheet&amp;gt; </false>
+        <false> &amp;lt;style&amp;gt; </false>
+        <true> &amp;lt;link&amp;gt; </true>
+      </question>
+      <question>
+        <prompt> #red{color:red} affects which elements? </prompt>
+        <false> Elements with color=red </false>
+        <true> Elements with id=red </true>
+        <false> Elements with class=red </false>
+        <false> Elements that are not red </false>
+      </question>
+      <question>
+        <prompt> Whole blocks of code can be referenced with which tag? </prompt>
+        <true> &amp;lt;div&amp;gt; </true>
+        <false> &amp;lt;block&amp;gt; </false>
+        <false> &amp;lt;span&amp;gt; </false>
+        <false> &amp;lt;style&amp;gt; </false>
+      </question>
+    </quiz>
+  </unit>
+  <unit num="2" title="JavaScript">
+    <summary>
+      This section builds on the previous one, as we learn to add
+      additional functionality to a website with JavaScript.
+    </summary>
+    <lesson>
+      <p>
+        JavaScript (JS) is a way to get additional functionality out of a webpage
+        that isn't possible with HTML alone. JS code is enclosed in <code>
+        &lt;script&gt;</code> tags, and can be placed in the <code>&lt;head&gt;
+        </code> section to excecute before the <code>&lt;body&gt;</code> section
+        loads, or placed in the <code>&lt;body&gt;</code> section to be executed in
+        place as that section loads. Elements of the HTML document and user actions
+        such as paragraphs or keyboard strokes can be referenced and manipulated by
+        JS using the Document Object Model (DOM), discussed in the next section.
+      </p>
+      <p>
+        Text can be written to a page with the <code>document.write()</code> or
+        <code>document.writeln()</code> method, and messages can be passed to the
+        user with the <code>window.alert()</code> method. User input can be taken
+        via the <code>window.prompt()</code> method.
+      </p>
+      <p>
+        JavaScript is considered a 'loosely typed language', meaning that variables
+        are not required to be given a datatype, and change datatypes when assigned
+        a new value of a different type. A new variable is declared with the <code>
+        var</code> keyword, and has an <i>undefined</i> value until it is given one.
+      </p>
+      <p>
+        Conditional <code>if()</code> statements are made using <i>equality</i> and
+        <i>relational</i> operators, <code>==</code> <code>!=</code> <code>&gt;
+        </code><code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code>, by returning
+        a boolean value: <code>if(a == b){...}</code>. If the value of <code>a
+        </code> is equal to <code>b</code>, then the following code will execute. If
+        the expression returns false, additional conditions may be evaluated with
+        <code>else if()</code> clauses. If none of the conditions return true , then
+        a final <code>else</code> will execute if one is present.
+      </p>
+      <p>
+        These operators are also used in <code>while</code> loops in the same way,
+        but excecute the code repeatedly until the conditional expression returns
+        false. Another type of loop is known as a <code>for</code> loop, in which
+        a variable is selected, checked for a condition, and then modified before
+        being checked again until the condition returns false: <code>for (i = 0;
+        i &lt; 10; i++){...}</code>. This statement initializes <code>i</code> to 1,
+        execute the following code if <code>i &lt; 10</code>, increments
+        <code>i</code> by 1, and then repeats a total of ten times.
+      </p>
+      <p>
+        A function is declared with the keyword <code>function</code> followed by
+        a name, parameters, and its code enclosed in curly braces: <code>function
+        myFunction(x, y){...}</code>. The parameter values are supplied by the
+        function caller, and then can be referenced by the names given in the
+        declaration statement. Functions can be called within the HTML document, or
+        by other functions.
+      </p>
+      <p>
+        JavaScript is heavily reliant on the Document Object Model (DOM), mentioned
+        in the previous section. The combination of HTML, CSS, JS and DOM are
+        sometimes refered to as DHTML, or Dynamic HTML, due to the dynamic nature of
+        webpages that use these technologies. DOM is a way to access and modify
+        elements in a HTML document and more. Object properties and methods are
+        called with <code>object.property</code> or <code>object.method()</code>.
+        Methods that return an object can be treated like a object, with its
+        properties and methods accessible with the same syntax, such as <code>
+        document.getElementById().className</code>.
+      </p>
+      <p>
+        Document properties include <code>head</code>, <code>body</code>, <code>
+        images</code>, <code>links</code>, as well as specified elements selected
+        with <code>getElementById()</code> and <code>getElementByClassName()</code>.
+        The Window object includes many useful methods including <code>
+        alert()</code>, <code>close()</code>, <code>open()</code>, and <code>
+        prompt()</code>.
+      </p>
+      <p>
+        Events can be referenced within HTML tags. Examples include <code>
+        onchange</code>, <code>onclick</code>, <code>onkeydown</code>, and <code>
+        onload</code>. The event is entered as a attribute of a tag, with a script
+        given as the value: <code>&lt;button onclick="window.close()"&gt;Close
+        Window&lt;/button&gt;</code>. An element can access its own properties and
+        methods with the <code>this</code> keyword: <code>this.innerHTML</code>.
+      </p>
+      <p>
+        CSS attributes can also be referenced through DOM with a <code>style
+        </code> property. For example, <code>
+        document.getElementById("title").style.color=red </code> will recolour the
+        elements with <code>id=title</code> red. This technique can be used to
+        drastically alter the appearance and behaviour of a webpage.
+      </p>
+      <p>
+        That's summarizes the basics of JavaScript and the Document Object Model,
+        so now let's test your new knowledge with another quiz!
+      </p>
+    </lesson>
+    <quiz>
+      <question>
+        <prompt> JavaScript is enclosed in which tag </prompt>
+        <false> &amp;lt;head&amp;gt; </false>
+        <false> &amp;lt;body&amp;gt; </false>
+        <false> &amp;lt;javascript&amp;gt; </false>
+        <true> &amp;lt;script&amp;gt; </true>
+      </question>
+      <question>
+        <prompt> How many times does the following code repeat: </prompt>
+        <true> 0 </true>
+        <false> 1 </false>
+        <false> 2 </false>
+        <false> 3 </false>
+      </question>
+      <question>
+        <prompt> Equality and relational expressions return what type of value? </prompt>
+        <true> boolean </true>
+        <false> integer </false>
+        <false> string </false>
+        <false> float </false>
+      </question>
+      <question>
+        <prompt> Fill in the blank: &lt;code&gt;function ______ (){}&lt;/code&gt; </prompt>
+        <false> x,y </false>
+        <true> myFunction </true>
+        <false> code </false>
+        <false> id </false>
+      </question>
+      <question>
+        <prompt> JavaScript variables... </prompt>
+        <false> must be given a datatype </false>
+        <false> cannot change datatype </false>
+        <false> are given a default value </false>
+        <true> (none of the above) </true>
+      </question>
+      <question>
+        <prompt> DOM stands for... </prompt>
+        <false> Document Object Method </false>
+        <true> Document Object Model </true>
+        <false> Document Operator Method </false>
+        <false> Delicious Orange Martini </false>
+      </question>
+      <question>
+        <prompt> An element can access its own properties with what keyword? </prompt>
+        <true> this </true>
+        <false> properties </false>
+        <false> function </false>
+        <false> element </false>
+      </question>
+      <question>
+        <prompt> What content does the following code color?
+          &lt;code style=\"display:flex;justify-content:center;margin:5px 0 -5px;\"&gt;
+            document.getElementById(p).style.color=red&lt;/code&gt;</prompt>
+        <false> Paragraphs </false>
+        <false> Text elements </false>
+        <false> \'p\' characters </false>
+        <true> Element with &lt;code&gt;id=p&lt;/code&gt; </true>
+      </question>
+      <question>
+        <prompt> Attributes &lt;code&gt;onload&lt;/code&gt; and &lt;code&gt;onclick&lt;/code&gt; refer to... </prompt>
+        <false> documents </false>
+        <true> events </true>
+        <false> functions </false>
+        <false> objects </false>
+      </question>
+      <question>
+        <prompt> The combination of HTML, CSS, JS and DOM is sometimes refered to as... </prompt>
+        <false> HCJD </false>
+        <true> DHTML </true>
+        <false> Advanced Web Development </false>
+        <false> Dynamic Web Development </false>
+      </question>
+    </quiz>
+  </unit>
+  <unit num="3" title="XML / AJAX">
+    <summary>
+      Finally we get into XML, a flexible way to organize and display data,
+      and AJAX, a fast and robust way to dynamically update page content.
+    </summary>
+    <lesson>
+      <p>
+        XML stands for <i>eXtensible Markup Language</i>, which is a framework for
+        creating custom markup languages similar to HTML. This provides the
+        structure and rules necessary for managing data consistently and
+        efficiently. An XML document contains the structured data, an XSD (<i>XML
+        Schema Definition</i>) document defines the syntax of the data, and an XSL
+        (<i>eXtensible Stylesheet Language Family</i>) document parses the data into
+        another format such as HTML.
+      </p>
+      <p>
+        Every XML document (including XSD and XSL) begins with the declaration:
+        <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>. Next, an XML
+        document will reference its associated XSL with <code>&lt;?xml-stylesheet
+        type="text/xsl" href="URL"?&gt;</code>, where URL is the address of the
+        file. Then, the remainder of the document will be enclosed in the root tag,
+        similar to the <code>&lt;html&gt;</code> tag in HTML. Within the opening
+        root tag, the XSD is referenced by adding the attribute <code>
+        xmlns:PREFIX="DIR"</code>, where PREFIX is the root name and DIR location of
+        the XSD. If multiple schemas are to be used in the document, additional
+        <code>xmlns:PREFIX</code> attributes may be added, but then the PREFIX must
+        precede tag names in order to resolve possible conflicts: <code>
+        &lt;root:tag&gt; &lt;alt:tag&gt;</code>.
+      </p>
+      <p>
+        XSD documents begin with the aforementioned XML declaration, and then an
+        opening root tag, <code>&lt;schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:ROOT="DIR" targetNamespace="DIR"&gt;</code>, where ROOT is the root
+        name and DIR is the directory location of the XSD. Within the <code>
+        &lt;schema&gt;</code> tags we declare the elements of the schema with <code>
+        &lt;xs:element name="NAME" type="TYPE"/&gt;</code>, where NAME is the tag
+        name in lowercase letters and TYPE is the tag name beginning with a capital.
+        Next, we declare types as either <i>complex</i> if they will contain child
+        elements, or <i>simple</i> if they will not: <code>&lt;xs:complexType
+        name="TYPE"&gt;</code> or <code>&lt;xs:simpleType name="TYPE"&gt;</code>.
+        A complex type will contain a pair of <code>&lt;xs:sequence&gt;</code> tags
+        that contain the child element declarations using the syntax just described.
+        A simple type must contain either a <code>
+        &lt;xs:restriction/&gt;</code>, <code>&lt;xs:list/&gt;</code>, or <code>
+        &lt;xs:union/&gt;</code> tag with an attribute that describes the type of
+        content of the type.
+      </p>
+      <p>
+        XSL documents once again begin with the XML declaration, and then a pair of
+        stylesheet tags which will enclose the remaining content: <code>
+        &lt;xsl:stylesheet version="3.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;</code>. Next, we can
+        specify the output format, such as HTML: <code>&lt;xsl:output method="html"
+        doctype-system="about:legacy-compat"/&gt;</code>. Then we create a work
+        space with <code>&lt;xsl:template match="/"&gt;</code>, which will contain
+        all our output code. Here, we can start coding in the chosen output format,
+        inserting individual items from our XML data with <code>&lt;xsl:value-of
+        select="PATH"/&gt;</code> tags, where PATH is the path to the element name
+        relative to the root element, such as <code>html/body/h1</code>. Multiple
+        items can be inserted with <code>&lt;xsl:for-each select="PATH"&gt;</code>
+        tags containing <code>&lt;xsl:value-of/&gt;</code> tags.
+      </p>
+      <p>
+        AJAX stands for <i>Asynchronous JavaScript and XML</i>, and refers to the
+        technique of processing specific areas of a webpage asynchronously as
+        opposed to constantly reloading the entire page any time a change is made
+        or data is sent or received from the server. This results in a faster and
+        more visually appealing product for the user.
+      </p>
+      <p>
+        On a simple level, DOM elements can be manipulated with JavaScript, but to
+        interact with server-side databases or processes, we need a way to exchange
+        request and response messages between the client and server. Central to AJAX
+        functionality is the <code>XMLHttpRequest</code> object, which does exactly
+        this. A request is sent with the object's <code>open()</code> and <code>
+        send()</code> methods. The <code>open()</code> method takes three
+        parameters: <i>method</i> (GET or POST), <i>url</i> (server or file
+        location), and <i>async</i> (true  or false). GET is faster than POST, but it
+        is uncached, limited in size, and unsecure. The <code>send()</code> method
+        can send parameter data to the target, and then the response is accessed
+        with: <code>onreadystatechange=function() {if(this.readyState==4 &amp;&amp;
+        this.status==200) DATA = this.response}</code>, where DATA is a variable to
+        hold the response, and <code>readyState==4&amp;&amp;status==200</code> indicates the
+        request was loaded and successful. The variable can then be applied to the
+        document, in the form of <code>element.innerHTML=DATA</code>, for example.
+      </p>
+      <p>
+        When parameters are required for a response, as in the case of server-side
+        data processing, GET and POST methods send data in different ways. For GET,
+        we append the data to the URL parameter in the <code>open()</code> using
+        the syntax: <code>URL?n1=v1&amp;n2=v2&amp;n3=v3...</code>, and the <code>send()
+        </code> takes no arguments. For POST, the data is instead given to the
+        <code>send()</code> method as the parameter, which is invisible to the user.
+        It is for this reason that GET is considered unsecure, and POST is not. In
+        addition, we require a <code>setRequestHeader(HEADER, VALUE)</code> method
+        for POST requests before <code>send()</code>, where HEADER is an HTTP header
+        name and VALUE is the header content. Finally, we should specify a response
+        type with the <code>responseType</code> property, which can be set to <i>
+        text</i>, <i>document</i>, or <i>json</i>. This should also be done before
+        <code>send()</code>.
+      </p>
+      <p>
+        One popular way to store and transport parameters is a format called JSON,
+        which stands for <i>JavaScript Object Notation</i>. It consists of a string
+        pattern of parameter names and values enclosed in curly braces: <code>
+        {n1:v1,n2:v2,n3:v3...}</code>. Since it is a plain text format with minimal
+        operators it is highly space and time efficient. Text can be converted to
+        and from JSON using the methods <code>JSON.parse()</code> and <code>
+        JSON.stringify()</code> for added flexability.
+      </p>
+      <p>
+        Now that you have a basic understanding of XML and AJAX, let's do the
+        final quiz!
+      </p>
+    </lesson>
+    <quiz>
+      <question>
+        <prompt> What does XML stand for? </prompt>
+        <false> eXtra Meaning Language </false>
+        <false> eXtensible Math Language </false>
+        <false> eXtra Markup Language </false>
+        <true> eXtensible Markup Language </true>
+      </question>
+      <question>
+        <prompt> What does XSD stand for? </prompt>
+        <true> XML Schema Definition </true>
+        <false> XML Schema Document </false>
+        <false> XML Style Definition </false>
+        <false> XML Style Document </false>
+      </question>
+      <question>
+        <prompt> What is an XSL document used for? </prompt>
+        <false> Styling data </false>
+        <false> Transforming data into another format </false>
+        <false> Outputting selected data </false>
+        <true> All the above </true>
+      </question>
+      <question>
+        <prompt> What attribute is used to declare a namespace? </prompt>
+        <false> namespace </false>
+        <false> xmlnamespace </false>
+        <true> xmlns </true>
+        <false> ns </false>
+      </question>
+      <question>
+        <prompt> What attribute is used to output an element\'s content? </prompt>
+        <false> output </false>
+        <true> value-of </true>
+        <false> content-of </false>
+        <false> print </false>
+      </question>
+      <question>
+        <prompt> What does AJAX stand for? </prompt>
+        <false> Associated JavaScript And XML </false>
+        <true> Asynchronous JavaScript And XML </true>
+        <false> Automatic JavaScript And XML </false>
+        <false> Awesome JavaScript And XML </false>
+      </question>
+      <question>
+        <prompt> What is &lt;code&gt;XMLHttpRequest&lt;/code&gt; used for? </prompt>
+        <false> Sending data to the server </false>
+        <false> Receiving data from the server </false>
+        <true> All the above </true>
+        <false> None of the above </false>
+      </question>
+      <question>
+        <prompt> Although slower, POST may be preferred to GET because it is... </prompt>
+        <false> cached </false>
+        <false> unlimited in size </false>
+        <false> secure </false>
+        <true> All the above </true>
+      </question>
+      <question>
+        <prompt> &lt;code&gt;{n1:v1,n2:v2,n3:v3...}&lt;/code&gt; is an example if what? </prompt>
+        <true> JSON </true>
+        <false> GET request </false>
+        <false> POST request </false>
+        <false> None of the above </false>
+      </question>
+      <question>
+        <prompt> What does JSON stand for? </prompt>
+        <false> Just Some Old Notation </false>
+        <false> JavaScript Open Notation </false>
+        <false> JavaScript Object Notation </false>
+        <true> JavaScript Ordered Notation </true>
+      </question>
+    </quiz>
+  </unit>
+</course>

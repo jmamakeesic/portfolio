@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookmarking Service</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../shared/styles.css"/>
+  <style>
+    #loginlink{
+      display: none;
+    }
+    #content{
+      overflow: auto;
+    }
+    #content *{
+      background-color: transparent;
+    }
+    #content input{
+      background-color: white;
+    }
+    a{
+      text-decoration: none;
+    }
+    ol{
+      margin-left: 45px;
+      line-height: 1.5em;
+    }
+    #sidebar a{
+      margin-left: 5px;
+      color: white;
+    }
+    #sidebar a:hover{
+      text-shadow: 0 2px 2px black;
+    }
+    ul{
+      list-style-type: none;
+    }
+    #sidebar{
+      background-image: url("../shared/menu.jpg");
+      float: left;
+      width: 150px;
+      margin: -10px 25px 0 -25px;
+      padding: 16px 0;
+      color: #bb8;
+    }
+    #sidebar h3{
+      margin-left: 25px;
+      color: white;
+    }
+    #form{
+      background-color: #db7;
+      border-spacing: 10px;
+      width: 100%;
+    }
+    #login{
+      margin: 20px 0 0 310px;
+      width: 280px;
+      display: block;
+      text-align: right;
+    }
+    button{
+      display: block;
+      margin: 10px auto;
+    }
+    #bookmarks{
+      line-height: 1.5em;
+    }
+    #bookmarks li{
+      margin-left: 25px;
+    }
+    #bookmarks img{
+      margin-left: 20px;
+    }
+    .editMode, #newForm{
+      display: none;
+      float:right;
+      margin-right:100px;
+    }
+    input{
+      padding: 0 2px;
+    }
+    #content input.button{
+      background-color: #eda;
+    }
+    .icon{
+      height:18px;
+      width:18px;
+      vertical-align: text-bottom;
+      margin-right: 10px;
+    }
+  </style>
+  <script>
+    var php; // global response data
+    var u;   // global username
+
+    // connect to server-side processor and database
+    function req(request) {
+      var xhr=new XMLHttpRequest();
+      xhr.open("post","bookmarks.php");
+      xhr.responseType="text";
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      xhr.send(request);
+      xhr.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200)php=this.response;};
+    }
+    // access user bookmarks
+    function login(){
+          u=document.getElementById("user").value;
+      var p=document.getElementById("pass").value;
+      if(u!=""&&p!=""){
+        php=null;
+        req("action=login&user="+u+"&pass="+p);
+        var wait=setInterval(function(){if(php!=null){
+          if     (php=="err-user")alert("Username not found");
+          else if(php=="err-pass")alert("Incorrect password");
+          else load('hello');
+          clearInterval(wait);}else console.log("wait");
+        },10);}
+    }
+    // register new account
+    function newAcct(){
+      u=document.getElementById("user").value,
+      p=document.getElementById("pass").value,
+      e=document.getElementById("email").value;
+      if(u!=""&&p!=""&&e!=""){
+        php=null;
+        req("action=newAcct&user="+u+"&pass="+p+"&email="+e);
+        var wait=setInterval(function(){if(php!=null){
+          if     (php=="err-user" )alert("This username is already in use");
+          else if(php=="err-email")alert("This email is already associated with an account");
+          else if(php=="inv-email")alert("Invalid email was entered");
+          else load('hello'),clearInterval(wait);}else console.log("wait");
+        },10);
+      }
+    }
+    // email login details to user
+    function forgot(){
+    e=document.getElementById("email").value;
+      if(e!=""){
+        php=null;
+        req("action=forgot&email="+e);
+        var wait=setInterval(function(){if(php!=null){
+          if(php=="err-email")alert("Email address not in found in database");
+          else page.innerHTML="Account details have been sent to "+e;
+          clearInterval(wait);}else console.log("wait");
+        },10);
+      }
+    }
+    // add bookmark
+    function add(){
+      var addsite=document.getElementById("newsite").value,
+          addurl=document.getElementById("newurl").value;
+      // validate url...
+      if(addsite==""||addurl=="")alert("Name and URL required");
+      else{
+        php=null;
+        req("action=add&site="+addsite+"&url="+addurl+"&user="+u);
+        var wait=setInterval(function(){if(php!=null){
+          load('bookmarks');
+          clearInterval(wait);}else console.log("wait");
+        },10);
+      }
+    }
+    // toggle edit form visibility
+    function editMode(){
+      var e=document.getElementsByClassName('editMode');
+      if(document.getElementById("editButton").innerHTML=="Edit Mode"){
+        document.getElementById("editButton").innerHTML="View Mode";
+        for(var i=0;i<e.length;i++)
+          e[i].style.display="inline";
+      }else{
+        document.getElementById("editButton").innerHTML="Edit Mode";
+        for(var i=0;i<e.length;i++)
+          e[i].style.display="none";
+      }
+    }
+    // apply changes to bookmark
+    function edit(id){
+      var editsite=document.getElementById('s'+id).value,
+          editurl=document.getElementById('u'+id).value;
+      if(editsite==""||editurl=="")alert("Name and URL required");
+      else{
+        php=null;
+        req("action=edit&id="+id+"&newsite="+editsite+"&newurl="+editurl+"&user="+u);
+        var wait=setInterval(function(){if(php!=null){
+          load('bookmarks');
+          var e=document.getElementsByClassName('editMode');
+          for(var i=0;i<e.length;i++)
+            e[i].style.display="inline";
+          clearInterval(wait);}else console.log("wait");
+        },10);
+      }
+    }
+    // remove bookmark
+    function del(id){
+      php=null;
+      req("action=delete&id="+id+"&user="+u);
+      var wait=setInterval(function(){if(php!=null){
+        load('bookmarks');
+        clearInterval(wait);}else console.log("wait");
+      },10);
+    }
+
+
+
+    // AJAX content display
+    function load(x){
+      if(x=='login')
+        document.getElementById("loginlink").style.display="none",
+        document.getElementById("page").innerHTML="<h2>Login</h2>"+
+          "<p>Log in to access your bookmarks, or create a new account.<br/></p>"+
+          "<form id='login' onsubmit='return false;'><a href='javascript:load(\"new\")'>"+
+          "New Account </a><table id='form'><tr><td>"+
+          "<b>Username</b></td><td><input id='user' autofocus/></td></tr><tr><td>"+
+          "<b>Password</b></td><td><input id='pass' type='password'/></td></tr></table>"+
+          "<a id='forgot' href='javascript:load(\"forgot\")'> Forgot Password </a>"+
+          "<button type='submit' onclick='login()'> Login </button></form>";
+      else if(x=='new')
+        document.getElementById("loginlink").style.display="inline",
+        document.getElementById("page").innerHTML="<h2>Create New Account</h2><p>"+
+          "Enter your desired username and password, and your email address"+
+          " to create a new account.</p><form id='login' onsubmit='return false;'>"+
+          "<table id='form'><tr><td>"+
+          "<b>Username</b></td><td><input id='user'/></td></tr><tr><td>"+
+          "<b>Password</b></td><td><input id='pass'/></td></tr><tr><td>"+
+          "<b>Email</b></td><td><input id='email'/></td></tr></table>"+
+          "<button type='submit' onclick='newAcct()'>Create Account</button></form>";
+      else if(x=='forgot')
+        document.getElementById("loginlink").style.display="inline",
+        document.getElementById("page").innerHTML="<h2>Forgot Password</h2><p>Enter your email address to "+
+          "have your account details sent to you.</p>"+
+          "<form id='login' onsubmit='return false;'><table id='form'><tr><td>"+
+          "<b>Email</b></td><td><input id='email'/></td></tr></table>"+
+          "<button type='submit' onclick='forgot()'>Submit</button></form>";
+      else if(x=='hello'){
+        if(u==null)u=document.getElementById("user").value;
+        var content="<h2>Welcome "+u+"!</h2>";
+        if(php=="")content+="<p>You have no bookmarks! Add one here:</p>";
+        else content+="<p>Here are your bookmarks:</p><ul id='bookmarks'></ul>"+
+          "<button type='button' id='editButton' onclick='editMode()'>Edit Mode</button>";
+        document.getElementById("page").innerHTML=content;
+        load('bookmarks');
+      }else if(x=='bookmarks'){
+        var content=php+
+        "<li><a href='#' onclick='newForm.style.display=\"inline\";return false;'>"+
+        "<i>New Bookmark...</i></a>"+
+        "<form id='newForm' onsubmit='return false;'>"+
+        "<input type='text' id='newsite' size='6' placeholder='Name'/> "+
+        "<input type='text' id='newurl' size='12' placeholder='URL' value='http://'/> "+
+        "<input type='submit' class='button' value='ADD' onclick='add()' style='width:40.5px'/> "+
+        "<input type='reset' class='button' value='CANCEL' onclick='newForm.style.display=\"none\"'/></form></li>";
+        document.getElementById("bookmarks").innerHTML=content;
+      }
+      else alert("invalid argument '"+x+"' in load()")
+    }
+  </script>
+</head>
+<body onload="load('login')">
+  <img id="banner" src="../shared/banner.jpg" alt=""/>
+  <div id="content">
+    <div id="sidebar">
+      <h3>Most Popular</h3>
+      <ol><li>
+        <a href="http://google.com"   > Google    </a></li><li>
+        <a href="http://youtube.com"  > YouTube   </a></li><li>
+        <a href="http://facebook.com" > Facebook  </a></li><li>
+        <a href="http://amazon.com"   > Amazon    </a></li><li>
+        <a href="http://yahoo.com"    > Yahoo     </a></li><li>
+        <a href="http://wikipedia.org"> Wikipedia </a></li><li>
+        <a href="http://reddit.com"   > Reddit    </a></li><li>
+        <a href="http://twitter.com"  > Twitter   </a></li><li>
+        <a href="http://ebay.com"     > eBay      </a></li><li>
+        <a href="http://instagram.com"> Instagram </a></li>
+      </ol>
+    </div>
+    <nav>
+      <a href="../index.htm">Back</a>
+      <a href="javascript:load('login')" id="loginlink">Login</a>
+    </nav>
+    <h1>Bookmarking Service</h1>
+    <div id="page"></div>
+  </div>
+  <footer>&copy;2019 Jonah Mamakeesic</footer>
+</body>
+</html>

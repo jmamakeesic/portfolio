@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Learning Management System</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../shared/styles.css"/>
+  <style>
+    #content{
+      overflow: auto;
+      padding: 25px;
+    }
+    button{
+      display: block;
+      margin: 20px auto 0;
+    }
+    #qmenu{
+      z-index: 1;
+      position: relative;
+      left: 0;
+      width: 100px;
+      padding-bottom: 1em;
+    }
+    #qlinks{
+      display: none;
+      width: 100%;
+      margin: 0;
+      padding: 2px 0 5px 10px;
+      background-color: rgba(0,0,0,0.8);
+    }
+    #qmenu:hover #qlinks{
+      position: absolute;
+      top: 1.5em;
+      left: -5px;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9em;
+    }
+    input{
+      margin: 0 1em .5em;
+    }
+    .center{
+      display: flex;
+      justify-content: center;
+    }
+    .center *{
+      margin: 10px 10px 0;
+    }
+  </style>
+  <script>
+    var php, // global response data
+        content,
+        nav,course,unit,lastUnit; // global variables
+    // connect to server
+    function req(request) {
+      content=document.getElementById('content');
+      var xhr=new XMLHttpRequest();
+      xhr.open("post","parser.php");
+      xhr.responseType="text";
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      xhr.send(request);
+      xhr.onreadystatechange=function(){
+        if(this.readyState==4&&this.status==200)php=this.response;};
+    }
+    // AJAX content display
+    function load(x){
+      if(x=='select'){ // load course selection
+        php=null;
+        req("load=select");
+        var wait=setInterval(function(){if(php!=null){
+          content.innerHTML=php;
+          clearInterval(wait);}else console.log("wait:select");
+        },10);
+      }
+      else if(x[0]=='u'){ // load unit lesson
+        php=null;
+        unit=x[1];
+        req("load=lesson&code="+course+"&unit="+unit);
+        var wait=setInterval(function(){if(php!=null){
+          content.innerHTML=nav+php;
+          clearInterval(wait);}else console.log("wait:unit");
+        },10);
+      }
+      else if(x[0]=='q'){ // load unit quiz
+        php=null;
+        unit=x[1];
+        req("load=quiz&code="+course+"&unit="+unit);
+        var wait=setInterval(function(){if(php!=null){
+          content.innerHTML=nav+php;
+          clearInterval(wait);}else console.log("wait:quiz");
+        },10);
+      }
+      else{ // load course nav panel
+        php=null;
+        course=x;
+        req("load=nav&code="+course);
+        var wait=setInterval(function(){if(php!=null){
+          nav=php;
+          setTimeout(function(){
+            // load course overview
+            php=null;
+            req("load=overview&code="+x);
+            var wait=setInterval(function(){if(php!=null){
+              content.innerHTML=nav+php;
+              clearInterval(wait);}else console.log("wait:overview");
+            },10);
+          },10);
+          clearInterval(wait);}else console.log("wait:nav");
+        },10);
+      }
+    }
+    function gradeQuiz(num){
+      // calculate grade
+      var numQuestions=document.querySelectorAll('.question').length;
+      var numCorrect=document.querySelectorAll('.mark:checked').length;
+      var grade=parseInt(100*numCorrect/numQuestions);
+      // display answers
+      var ans="";
+      for(var i=0; i<numQuestions; i++)ans+=
+          "<h3 style='margin-left:0'>"+
+          document.getElementsByClassName("question")[i].innerHTML+"</h3>"+
+          "<p>"+document.getElementsByClassName("ans")[i].innerHTML+"</p>";
+      content.innerHTML=nav+"<h1>Quiz "+unit+": <span id='score'></span>%</h1>"+
+                            "<h2>Answers:</h2>"+
+                            "<div id='answers'></div>";
+      score.outerHTML=grade;
+      answers.outerHTML=ans;
+      // setup button
+      if(num!=lastUnit)content.innerHTML+=
+          "<button type='button' onclick='load(\"u"+(num+1)+"\")'>Continue</button>";
+    }
+  </script>
+</head>
+<body onload="load('select')">
+  <img id="banner" src="../shared/banner.jpg" alt=""/>
+  <div id="content"></div>
+  <footer>&copy;2019 Jonah Mamakeesic</footer>
+</body>
+</html>

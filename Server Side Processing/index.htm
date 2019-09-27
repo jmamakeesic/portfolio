@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Server Side Processing</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="shared/styles.css">
+    <style>
+      #content{
+        padding-bottom: 25px;
+      }
+      #projectinfo td{
+        padding-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="banner" src="shared/banner.jpg"/>
+    <div id="content">
+      <h1>Server Side Processing</h1>
+
+      <h2>Project Details</h2>
+      <p>
+        <b>Part 1</b> demonstrates the use of MySQL and PHP to create on online bookmarking
+        service in which multiple users can add to and modify their personal bookmarks.
+      </p>
+      <p>
+        <b>Part 2</b> integrates online course materials written in XML using a custom
+        schema definition and SQL tables with server-side parsing to HTML format.
+      </p>
+
+      <h2>Analysis and Design</h2>
+      <p>
+        <b>Part 1</b> references two SQL tables via PHP: 'users' and 'bookmarks'. The page
+        begins with a login form which takes a username and password. The data is checked
+        against the 'users' table and if valid, loads the user's bookmark collection
+        from the 'bookmarks' table. A new account is created taking a desired username,
+        password, and email. If the username or email is already in use, an alert will
+        be made. Otherwise, the user data will be entered into the 'user' table. If the
+        user forgets their password, the 'forget password' form asks for their email and
+        sends them their login details.
+      </p>
+      <p>
+        New bookmarks are added to the database by taking a site name, URL, and the
+        current user. A user can add, modify, and delete entries associated with their
+        account. Each bookmark pulls an icon from the target website on render.
+      </p>
+      <p>
+        <b>Part 2</b> references two SQL tables via PHP: 'courses' and 'units'. The page
+        begins with a course selection menu which name each course in the database.
+        On loading a selected course, a title page appears which breifly describes
+        the course and its units, with links to each one. On selecting a unit, its
+        content is displayed with links to a multiple choice quiz and the next unit.
+        The quizzes are parsed in PHP from an XML document to an HTML form and graded
+        in JavaScript before displaying the correct answers and linking to the next unit.
+      </p>
+
+      <h2>Documentation</h2>
+      <p>
+        This assignment was tested in Internet Explorer, Opera, Firefox, and Chrome.
+      </p>
+      <p>
+        <b>Part 1</b> has visual bugs in Internet Explorer but otherwise works well
+        in all browsers.
+      </p>
+      <p>
+        <b>Part 2</b> works in all browsers.
+      </p>
+
+      <h2>User Guide</h2>
+      <p>
+        In <b>Part 1</b>, create a new account, or login to the project account:<br/>
+        <code style="display:block;margin:10px;">username: q <br/> password: q <br/></code>
+        Then you can add a new bookmark by clicking '<i>New Bookmark...</i>' and entering
+        a site name and url. The 'Edit Mode' button displays an editing form next to each
+        bookmark. The button can be pressed again to hide the form.
+      </p>
+      <p>
+        In <b>Part 2</b>, begin by selecting a course. Then navigate to a lesson, quiz,
+        or course selection page via the header or in-page links. For quizzes, complete
+        the multiple choice assessment and submit to see your grade and the correct
+        answers to the quiz.
+      </p>
+
+      <h2>Content</h2>
+      <p>
+        <a href="part 1/index.htm"> Part 1 - Bookmarking Service </a><br/>
+        <a href="part 2/index.htm"> Part 2 - Online Learning Management System</a>
+      </p>
+
+    </div>
+  </body>
+</html>
