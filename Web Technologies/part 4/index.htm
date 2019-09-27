@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Utilities</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="../shared/styles.css"/>
+  <style>
+    #content{
+      padding-bottom: 25px;
+      overflow: auto;
+      vertical-align: text-top;
+    }
+    #mort{
+      margin: 0 auto;
+    }
+    input{
+      width: 5.3em;
+    }
+    input:read-only{
+      background-color: #eee;
+    }
+    td{
+      padding: 4px;
+    }
+    #mort td:nth-child(2n+1){
+      width: 130px;
+      text-align: right;
+      padding-right: 0.5em;
+    }
+    #rate{
+      width: 4em;
+      margin-right: 3px;
+    }
+    #int{
+      width: 58px;
+    }
+    #modes{
+      display: inline-block;
+      padding-left: 1.5em;
+      text-align: right;
+    }
+  </style>
+  <script>
+    var weight="<option value='g' > g    </option>"+
+               "<option value='oz'> oz   </option>"+
+               "<option value='lb'> lb   </option>",
+        length="<option value='m' > m    </option>"+
+               "<option value='in'> in   </option>"+
+               "<option value='ft'> ft   </option>",
+        area  ="<option value='m' > m²   </option>"+
+               "<option value='in'> in²  </option>"+
+               "<option value='ft'> ft²  </option>",
+        volume="<option value='m' > m³   </option>"+
+               "<option value='in'> in³  </option>"+
+               "<option value='ft'> ft³  </option>";
+    var nav="<nav><a href=\"../index.htm\">Back</a>"+
+            "<a href=\"javascript:load('u1')\">Measurement</a>"+
+            "<a href=\"javascript:load('u2')\">Mortgage</a>"+
+            "<a href=\"javascript:load('u3')\">Room Modes</a>"+
+            "</nav><h1>Utilities</h1>",
+        u1= "<h2>Measurement Conversion</h2>"+
+            "<div style='text-align:center'>"+
+            "  <b>Measurement Type</b>"+
+            "  <select id='unit' onchange='unit(this.value);update(\"u1\")'>"+
+            "    <option value='w'> Weight </option>"+
+            "    <option value='l'> Length </option>"+
+            "    <option value='a'> Area   </option>"+
+            "    <option value='v'> Volume </option>"+
+            "  </select><br/>"+
+            "  <input id='input' oninput='update(\"u1\")' type='number' placeholder='0'/>"+
+            "  <select id='from' onchange='update(\"u1\")'></select> →"+
+            "  <select id='to'   onchange='update(\"u1\")'></select> ="+
+            "  <input id='result' readonly/>"+
+            "</div>",
+        u2= "<h2>Mortgage Calculator</h2>"+
+            "<table id='mort'>"+
+            "  <tr><td>"+
+            "    <b>Sale Price</b>"+
+            "  </td><td>"+
+            "    $ <input id='sale' oninput='update(\"u2\")' type='number' placeholder='200000'/>"+
+            "  </td><td>"+
+            "    <b>Term</b>"+
+            "  </td><td>"+
+            "    <select id='term' onchange='update(\"u2\")'>"+
+            "      <option value='5' > 5  Years </option>"+
+            "      <option value='10'> 10 Years </option>"+
+            "      <option value='15'> 15 Years </option>"+
+            "      <option value='20'> 20 Years </option>"+
+            "      <option value='25'> 25 Years </option>"+
+            "    </select>"+
+            "  </td></tr><tr><td>"+
+            "    <b>Down Payment</b>"+
+            "  </td><td>"+
+            "    $ <input id='down' oninput='update(\"u2\")' type='number' placeholder='10000'/>"+
+            "  </td><td>"+
+            "    <b>Rate per Annum</b>"+
+            "  </td><td>"+
+            "    <input id='rate' oninput='update(\"u2\")' type='number' placeholder='2.4'/>%"+
+            "  </td></tr><tr><td>"+
+            "    <b>Monthly Payment</b>"+
+            "  </td><td>"+
+            "    $ <input id='pay' placeholder='3363.63' readonly/>"+
+            "  </td><td>"+
+            "    <b>Total Interest</b>"+
+            "  </td><td>"+
+            "    $ <input id='int' placeholder='11817.65' readonly/>"+
+            "  </td></tr>"+
+            "</table>",
+        u3= "<h2>Room Mode Calculator</h2>"+
+            "<table style='float:left;margin:0 40px 0 220px;text-align:right;'>"+
+            "  <tr><td>"+
+            "    <b>Length</b>"+
+            "  </td><td>"+
+            "    <input id='l' oninput='update(\"u3\")' type='number' value='20'/> ft"+
+            "  </td></tr><tr><td>"+
+            "    <b>Width</b>"+
+            "  </td><td>"+
+            "    <input id='w' oninput='update(\"u3\")' type='number' value='15'/> ft"+
+            "  </td></tr><tr><td>"+
+            "    <b>Height</b>"+
+            "  </td><td>"+
+            "    <input id='h' oninput='update(\"u3\")' type='number' value='8'/> ft"+
+            "  </td></tr>"+
+            "</table>"+
+            "<h3>Room Modes:</h3>"+
+            "<div id='modes'></div>";
+
+    function unit(type){
+      if     (type=='w')type=weight;
+      else if(type=='l')type=length;
+      else if(type=='a')type=area;
+      else if(type=='v')type=volume;
+      from.innerHTML=to.innerHTML=type;
+    }
+    function update(util){
+      if(util=="u1"){ // measurement conversion
+        if(input.value!=""){
+          var u=unit.value,  // unit type
+              f=from.value,  // 'from' unit
+              t=to.value,    // 'to' unit
+              x=input.value, // given value
+              r=0;           // result
+          if     (f=="g" ){if(t=="g" )r=x;
+                      else if(t=="oz")r=x/28.3495;
+                      else if(t=="lb")r=x/453.592;}
+          else if(f=="oz"){if(t=="g" )r=x*28.3495;
+                      else if(t=="oz")r=x;
+                      else if(t=="lb")r=x/16;}
+          else if(f=="lb"){if(t=="g" )r=x*453.592;
+                      else if(t=="oz")r=x*16;
+                      else if(t=="lb")r=x;}
+          else if(f=="m" ){if(t=="m" )r=x;
+                      else if(t=="in")r=x*39.3701;
+                      else if(t=="ft")r=x*3.28084;}
+          else if(f=="in"){if(t=="m" )r=x/39.3701;
+                      else if(t=="in")r=x;
+                      else if(t=="ft")r=x/12;}
+          else if(f=="ft"){if(t=="m" )r=x/3.28084;
+                      else if(t=="in")r=x*12;
+                      else if(t=="ft")r=x;}
+          t+=(u=='a'?'²':'')+(u=='v'?'³':'');
+          result.value=parseFloat(r).toFixed(2)+t;
+        }else result.value="";
+      }else if(util=="u2"){ // mortgage calculator
+        if(sale.value!=""&&down.value!=""&&rate.value!=""){
+        var loan=sale.value-down.value,  // amount owed
+            monthlyRate=rate.value/1200, // rate-per-month
+            numMonths=term.value*12,     // number of months
+            paymentAmount=loan*monthlyRate/(1-Math.pow(1+monthlyRate,-numMonths)),
+            totalInterest=paymentAmount*numMonths-loan;
+        pay.value=paymentAmount.toFixed(2);
+        int.value=totalInterest.toFixed(2);
+      }
+      }else if(util=="u3"){ // room mode calculator
+        if(l.value!=""&&w.value!=""&&h.value!=""){
+          // frequency = 1130 feet-per-second / wavelength
+          var a=1130/l.value,
+              b=1130/w.value,
+              c=1130/h.value,
+              mode=[],
+              str="";
+          // find multiples < 300 Hz
+          while(a<300)mode.push(Math.round(a)),a*=2;
+          while(b<300)mode.push(Math.round(b)),b*=2;
+          while(c<300)mode.push(Math.round(c)),c*=2;
+          mode=new Set(mode.sort(function(a,b){return a-b}));
+          mode.forEach(function(mode){str+=mode+" Hz<br/>"});
+          modes.innerHTML=str;
+        }
+      }
+    }
+    function load(u){
+      if     (u=="u1")content.innerHTML=nav+u1;
+      else if(u=="u2")content.innerHTML=nav+u2;
+      else if(u=="u3")content.innerHTML=nav+u3;
+      update(u);
+    }
+  </script>
+</head>
+<body onload="load('u1');unit('w');">
+  <img id="banner" src="../shared/banner.jpg" alt=""/>
+  <div id="content"></div>
+  <footer>&copy;2019 Jonah Mamakeesic</footer>
+</body>
+</html>

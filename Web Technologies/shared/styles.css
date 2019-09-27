@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@font-face{
+  font-family: Muli-Regular;
+  src: url("Muli-Regular.ttf") format("truetype");
+}
+@font-face{
+  font-family: Gill-Sans;
+  src: url("gill-sans.ttf") format("truetype");
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Muli-Regular, sans-serif;
+  width: 800px;
+  margin: 0 auto 25px;
+  background: #333 url(tile.gif) fixed;
+}
+body *{
+  background-color: white;
+}
+#banner{
+  background-color: black;
+  height: 200px;
+  width: 800px;
+}
+#content{
+  padding: 10px 25px 0;
+  margin-top: -4px;
+}
+h1{
+  padding-bottom: 10px;
+  position: absolute;
+  top: 150px;
+  background-color: rgba(0,0,0,0);
+  color: #fff;
+}
+h2{
+  font-size: 1.2em;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #335;
+}
+h3{
+  font-size: 1em;
+  margin: 0 0 .5em 1em;
+}
+p{
+  margin: 0 0 .5em 1em;
+}
+a, a:visited{
+  color: #000;
+}
+a:active, a:hover{
+  color: #666;
+}
+nav a, nav a:visited{
+  text-decoration: none;
+  color: #aaa;
+}
+nav a:active, nav a:hover{
+  color: #fff;
+}
+nav{
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 10px;
+}
+nav *{
+  color: #aaa;
+  background-color: rgba(0,0,0,0);
+  display: inline;
+  font-size: 1.1em;
+  margin-right: .5em;
+}
+button{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #9ac;
+  background-image: linear-gradient(top, #abc 0%, #579 100%);
+  background-image: -o-linear-gradient(top, #abc 0%, #579 100%);
+  background-image: -moz-linear-gradient(top, #abc 0%, #579 100%);
+  background-image: -webkit-linear-gradient(top, #abc 0%, #579 100%);
+  background-image: -ms-linear-gradient(top, #abc 0%, #579 100%);
+  font-size: 1em;
+  font-weight: bold;
+  border: 1px #579 solid;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #dde;
+  background-image: linear-gradient(top, #def 0%, #68a 100%);
+  background-image: -o-linear-gradient(top, #def 0%, #68a 100%);
+  background-image: -moz-linear-gradient(top, #def 0%, #68a 100%);
+  background-image: -webkit-linear-gradient(top, #def 0%, #68a 100%);
+  background-image: -ms-linear-gradient(top, #def 0%, #68a 100%);
+}
+code{
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+footer{
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: rgba(0,0,0,0);
+}

@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<element id="nav"><![CDATA[
+  <nav>
+    <a href="../index.htm">Back</a>
+    <a href="javascript:load('welcome')">Home</a>
+    <a href="javascript:load('s1')">Unit 1</a>
+    <a href="javascript:load('s3')">Unit 2</a>
+    <a href="javascript:load('s5')">Unit 3</a>
+    <div id="qmenu">
+      Quizzes
+      <div id="qlinks">
+        <a href="javascript:load('q1')">Quiz 1</a>
+        <a href="javascript:load('q2')">Quiz 2</a>
+        <a href="javascript:load('q3')">Quiz 3</a>
+        <a href="javascript:load('q4')">Quiz 4</a>
+        <a href="javascript:load('q5')">Quiz 5</a>
+        <a href="javascript:load('q6')">Quiz 6</a>
+      </div>
+    </div>
+  </nav>
+]]></element>
+<element id="welcome"><![CDATA[
+  <h1>Learning Web Technologies</h1>
+  <h2>Welcome</h2>
+  <p>
+    This application has been created to teach the basics of several key web
+    technologies in modern web development. The subjects are organized into
+    three units and contain tutorials and quizzes. Click on the links below to
+    get started!
+  </p>
+  <h2>Unit 1 - HTML5 / CSS3</h2>
+  <p>
+    Here we learn the fundamentals of web design. HTML is the most common
+    technology for creating web content, and CSS helps us make it visually
+    appealing!
+  </p>
+  <button onclick="load('s1')">Start Unit 1</button>
+  <h2>Unit 2 - JavaScript</h2>
+  <p>
+    This section builds on the previous one, as we learn to add additional
+    functionality to a website with JavaScript.
+  </p>
+  <button onclick="load('s3')">Start Unit 2</button>
+  <h2>Unit 3 - XML / AJAX</h2>
+  <p>
+    Finally we get into XML, a flexible way to organize and display data, and
+    AJAX, a fast and robust way to dynamically update page content.
+  </p>
+  <button onclick="load('s5')">Start Unit 3</button>
+]]></element>
+<element id="s1"><![CDATA[
+  <h1>Unit 1</h1>
+  <h2>Part 1: Intro to HTML5</h2>
+  <p>
+    Every HTML document must start with a document type declaration: <code>
+    &lt;!DOCTYPE html&gt;</code>. The remaining content is enclosed in
+    <code>&lt;html&gt;</code> tags. Inside these tags are two primary sections,
+    enclosed in <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.
+    The <code>&lt;head&gt;</code> sections contains information about the
+    webpage such as the title, author, description, and keywords, which are
+    used in web searches, as well as metadata, stylesheets, and scripts. The
+    <code>&lt;body&gt;</code> section contains everything that is to be
+    displayed on the webpage, such as text, hyperlinks, images, videos,
+    animations, or embedded applications. All HTML tags must be closed, with
+    a matching <code>&lt;/...&gt;</code> tag, or in some cases, by using a
+    self-closing format: <code>&lt;... /&gt;</code>.
+  </p>
+  <p>
+    There have been five versions of HTML that have been released, the most
+    recent being verion 5, with additional tags being supported, and old ones
+    being depricated to comply with changing standards. Many tags that were
+    once commonly used have been replaced by CSS formatting.
+  </p>
+  <p>
+    Tables were once a popular way to build entire web pages, but now they
+    are reserved for tabular data to increase flexability between widely
+    varying screen sizes, from smartphones to large high definition monitors.
+    A table is enclosed in <code>&lt;table&gt;</code> tags, then each row is
+    created by <code>&lt;tr&gt;</code> tags, and then individual cells with
+    <code>&lt;td&gt;</code>. The first row of a table can instead be designated
+    with <code>&lt;th&gt;</code> tags, to be treated separately as a table
+    header when applicable.
+  </p>
+  <p>
+    Text can be enclosed in a variety of tags depending on the context. Titles
+    should be enclosed in heading tags, <code>&lt;h1&gt;</code> to <code>
+    &lt;h6&gt;</code>, depending on their intended emphasis. <code>&lt;h1&gt;
+    </code> designates the main title, <code>&lt;h2&gt;</code> designates
+    secondary titles, and so on. Paragraphs are enclosed in <code>&lt;p&gt;
+    </code> tags, and lists in <code>&lt;ol&gt;</code> or <code>&lt;ul&gt;
+    </code> tags for ordered or unordered lists, with list items designated by
+    <code>&lt;li&gt;</code> tags.
+  </p>
+  <p>
+    Hyperlinks are enclosed in <code>&lt;a&gt;</code> tags, images with <code>
+    &lt;img&gt;</code> tags, and buttons with <code>&lt;button&gt;</code> tags.
+    These objects however, require additional attributes to be meaningful.
+    Inside of the opening tag, a hyperlink needs a destination address, an image
+    needs an image address, and a button needs an action. These attributes are
+    written like this: <code>&lt;a href="URL"&gt;</code>, <code>&lt;img
+    src="URL"/&gt;</code>, and <code>&lt;button onclick="ACTION"&gt;</code>,
+    where URL is an address and ACTION is an action.
+  </p>
+  <p>
+    Now that we've covered the basics of HTML, try the quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q1')">Quiz 1</button>
+    <button type="button" onclick="load('s2')">Part 2</button>
+  </div>
+]]></element>
+<element id="s2"><![CDATA[
+  <h1>Unit 1</h1>
+  <h2>Part 2: Intro to CSS</h2>
+  <p>
+    CSS was developed to separate web page formatting into its own document.
+    This allows changes to be made quickly, as one does not need to scan through
+    an HTML file to find the elements to be modified. Multiple elements can be
+    adjusted at once, even across multiple pages that share a CSS document.
+  </p>
+  <p>
+    There are three methods that CSS can be applied to an HTML document: inline,
+    internal, or external. Inline CSS is applied as a <code>style</code>
+    attribute of a tag in the HTML document, and only affects the element it is
+    contained in. This method is discouraged though, as it negates the
+    efficiency of CSS. Internal CSS is put in the <code>&lt;head&gt;</code>
+    section, wrapped in <code>&lt;style&gt;</code> tags, and affects the entire
+    document. But for maximum versatility, external CSS is applied in a separate
+    document all together, allowing it to be linked to any number of HTML
+    documents. An external CSS file is referenced in the <code>&lt;head&gt;
+    </code> section with the following code: <code>&lt;link rel="stylesheet"
+    type="text/css" href="URL" /&gt;</code>, where URL is the address of the CSS
+    file. We will assume external CSS is being used for the remainder of the
+    discussion.
+  </p>
+  <p>
+    Any tag in an HTML document can referenced by CSS and all matching tags
+    are affected at once. If this behaviour is too broad, specific tags can
+    be given a <code>class</code> or <code>id</code> attribute and then be
+    referenced in groups or individually. For example, <code>p{color:red}</code>
+    will colour all paragraph elements red, but <code>p.red{color:red}</code>
+    will only colour paragraph elements given the class 'red'. Similarly,
+    <code>#red{color:red}</code> will only colour a single element, because
+    each <code>id</code> can only be applied once in an HTML document.
+  </p>
+  <p>
+    Sections of HTML code can be enclosed in <code>&lt;div&gt;</code> or <code>
+    &lt;span&gt;</code> tags, and then given <code>class</code> or <code>id
+    </code> attributes to style the entire section as one element. The
+    difference between these two tags is that <code>&lt;div&gt;</code> will
+    separate its content from the preceding and following code, where <code>
+    &lt;span&gt;</code> will maintain continuity of the code. For this reason,
+    <code>&lt;div&gt;</code> is more suited for wrapping complete sections and
+    <code>&lt;span&gt;</code> is better for use within sections, such as
+    paragraphs.
+  </p>
+  <p>
+    That wraps up basic CSS formatting. Now that you know how to style an HTML
+    document using CSS, its time for another quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q2')">Quiz 2</button>
+    <button type="button" onclick="load('s3')">Unit 2</button>
+  </div>
+]]></element>
+<element id="s3"><![CDATA[
+  <h1>Unit 2</h1>
+  <h2>Part 1: Intro to JavaScript</h2>
+  <p>
+    JavaScript (JS) is a way to get additional functionality out of a webpage
+    that isn't possible with HTML alone. JS code is enclosed in <code>
+    &lt;script&gt;</code> tags, and can be placed in the <code>&lt;head&gt;
+    </code> section to excecute before the <code>&lt;body&gt;</code> section
+    loads, or placed in the <code>&lt;body&gt;</code> section to be executed in
+    place as that section loads. Elements of the HTML document and user actions
+    such as paragraphs or keyboard strokes can be referenced and manipulated by
+    JS using the Document Object Model (DOM), discussed in the next section.
+  </p>
+  <p>
+    Text can be written to a page with the <code>document.write()</code> or
+    <code>document.writeln()</code> method, and messages can be passed to the
+    user with the <code>window.alert()</code> method. User input can be taken
+    via the <code>window.prompt()</code> method.
+  </p>
+  <p>
+    JavaScript is considered a 'loosely typed language', meaning that variables
+    are not required to be given a datatype, and change datatypes when assigned
+    a new value of a different type. A new variable is declared with the <code>
+    var</code> keyword, and has an <i>undefined</i> value until it is given one.
+  </p>
+  <p>
+    Conditional <code>if()</code> statements are made using <i>equality</i> and
+    <i>relational</i> operators, <code>==</code> <code>!=</code> <code>&gt;
+    </code><code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code>, by returning
+    a boolean value: <code>if(a == b){...}</code>. If the value of <code>a
+    </code> is equal to <code>b</code>, then the following code will execute. If
+    the expression returns false, additional conditions may be evaluated with
+    <code>else if()</code> clauses. If none of the conditions return true, then
+    a final <code>else</code> will execute if one is present.
+  </p>
+  <p>
+    These operators are also used in <code>while</code> loops in the same way,
+    but excecute the code repeatedly until the conditional expression returns
+    false. Another type of loop is known as a <code>for</code> loop, in which
+    a variable is selected, checked for a condition, and then modified before
+    being checked again until the condition returns false: <code>for (i = 0;
+    i &lt; 10; i++){...}</code>. This statement initializes <code>i</code> to 1,
+    execute the following code if <code>i &lt; 10</code>, increments
+    <code>i</code> by 1, and then repeats a total of ten times.
+  </p>
+  <p>
+    A function is declared with the keyword <code>function</code> followed by
+    a name, parameters, and its code enclosed in curly braces: <code>function
+    myFunction(x, y){...}</code>. The parameter values are supplied by the
+    function caller, and then can be referenced by the names given in the
+    declaration statement. Functions can be called within the HTML document, or
+    by other functions.
+  </p>
+  <p>
+    Now that you've added some JavaScript to your arsenal, let's do a quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q3')">Quiz 3</button>
+    <button type="button" onclick="load('s4')">Part 2</button>
+  </div>
+]]></element>
+<element id="s4"><![CDATA[
+  <h1>Unit 2</h1>
+  <h2>Part 2: JavaScript and the Document Object Model</h2>
+  <p>
+    JavaScript is heavily reliant on the Document Object Model (DOM), mentioned
+    in the previous section. The combination of HTML, CSS, JS and DOM are
+    sometimes refered to as DHTML, or Dynamic HTML, due to the dynamic nature of
+    webpages that use these technologies. DOM is a way to access and modify
+    elements in a HTML document and more. Object properties and methods are
+    called with <code>object.property</code> or <code>object.method()</code>.
+    Methods that return an object can be treated like a object, with its
+    properties and methods accessible with the same syntax, such as <code>
+    document.getElementById().className</code>.
+  </p>
+  <p>
+    Document properties include <code>head</code>, <code>body</code>, <code>
+    images</code>, <code>links</code>, as well as specified elements selected
+    with <code>getElementById()</code> and <code>getElementByClassName()</code>.
+    The Window object includes many useful methods including <code>
+    alert()</code>, <code>close()</code>, <code>open()</code>, and <code>
+    prompt()</code>.
+  </p>
+  <p>
+    Events can be referenced within HTML tags. Examples include <code>
+    onchange</code>, <code>onclick</code>, <code>onkeydown</code>, and <code>
+    onload</code>. The event is entered as a attribute of a tag, with a script
+    given as the value: <code>&lt;button onclick="window.close()"&gt;Close
+    Window&lt;/button&gt;</code>. An element can access its own properties and
+    methods with the <code>this</code> keyword: <code>this.innerHTML</code>.
+  </p>
+  <p>
+    CSS attributes can also be referenced through DOM with a <code>style
+    </code> property. For example, <code>
+    document.getElementById("title").style.color=red </code> will recolour the
+    elements with <code>id=title</code> red. This technique can be used to
+    drastically alter the appearance and behaviour of a webpage.
+  </p>
+  <p>
+    That's summarizes the basics of the Document Object Model, so now let's test
+    your new knowledge with another quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q4')">Quiz 4</button>
+    <button type="button" onclick="load('s5')">Unit 3</button>
+  </div>
+]]></element>
+<element id="s5"><![CDATA[
+  <h1>Unit 3</h1>
+  <h2>Part 1: Basic XML</h2>
+  <p>
+    XML stands for <i>eXtensible Markup Language</i>, which is a framework for
+    creating custom markup languages similar to HTML. This provides the
+    structure and rules necessary for managing data consistently and
+    efficiently. An XML document contains the structured data, an XSD (<i>XML
+    Schema Definition</i>) document defines the syntax of the data, and an XSL
+    (<i>eXtensible Stylesheet Language Family</i>) document parses the data into
+    another format such as HTML.
+  </p>
+  <p>
+    Every XML document (including XSD and XSL) begins with the declaration:
+    <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>. Next, an XML
+    document will reference its associated XSL with <code>&lt;?xml-stylesheet
+    type="text/xsl" href="URL"?&gt;</code>, where URL is the address of the
+    file. Then, the remainder of the document will be enclosed in the root tag,
+    similar to the <code>&lt;html&gt;</code> tag in HTML. Within the opening
+    root tag, the XSD is referenced by adding the attribute <code>
+    xmlns:PREFIX="DIR"</code>, where PREFIX is the root name and DIR location of
+    the XSD. If multiple schemas are to be used in the document, additional
+    <code>xmlns:PREFIX</code> attributes may be added, but then the PREFIX must
+    precede tag names in order to resolve possible conflicts: <code>
+    &lt;root:tag&gt; &lt;alt:tag&gt;</code>.
+  </p>
+  <p>
+    XSD documents begin with the aforementioned XML declaration, and then an
+    opening root tag, <code>&lt;schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ROOT="DIR" targetNamespace="DIR"&gt;</code>, where ROOT is the root
+    name and DIR is the directory location of the XSD. Within the <code>
+    &lt;schema&gt;</code> tags we declare the elements of the schema with <code>
+    &lt;xs:element name="NAME" type="TYPE"/&gt;</code>, where NAME is the tag
+    name in lowercase letters and TYPE is the tag name beginning with a capital.
+    Next, we declare types as either <i>complex</i> if they will contain child
+    elements, or <i>simple</i> if they will not: <code>&lt;xs:complexType
+    name="TYPE"&gt;</code> or <code>&lt;xs:simpleType name="TYPE"&gt;</code>.
+    A complex type will contain a pair of <code>&lt;xs:sequence&gt;</code> tags
+    that contain the child element declarations using the syntax just described.
+    A simple type must contain either a <code>
+    &lt;xs:restriction/&gt;</code>, <code>&lt;xs:list/&gt;</code>, or <code>
+    &lt;xs:union/&gt;</code> tag with an attribute that describes the type of
+    content of the type.
+  </p>
+  <p>
+    XSL documents once again begin with the XML declaration, and then a pair of
+    stylesheet tags which will enclose the remaining content: <code>
+    &lt;xsl:stylesheet version="3.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;</code>. Next, we can
+    specify the output format, such as HTML: <code>&lt;xsl:output method="html"
+    doctype-system="about:legacy-compat"/&gt;</code>. Then we create a work
+    space with <code>&lt;xsl:template match="/"&gt;</code>, which will contain
+    all our output code. Here, we can start coding in the chosen output format,
+    inserting individual items from our XML data with <code>&lt;xsl:value-of
+    select="PATH"/&gt;</code> tags, where PATH is the path to the element name
+    relative to the root element, such as <code>html/body/h1</code>. Multiple
+    items can be inserted with <code>&lt;xsl:for-each select="PATH"&gt;</code>
+    tags containing <code>&lt;xsl:value-of/&gt;</code> tags.
+  </p>
+  <p>
+    That covers the basics of XML, so now another quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q5')">Quiz 5</button>
+    <button type="button" onclick="load('s6')">Part 2</button>
+  </div>
+]]></element>
+<element id="s6"><![CDATA[
+  <h1>Unit 3</h1>
+  <h2>Part 2: Intro to AJAX</h2>
+  <p>
+    AJAX stands for <i>Asynchronous JavaScript and XML</i>, and refers to the
+    technique of processing specific areas of a webpage asynchronously as
+    opposed to constantly reloading the entire page any time a change is made
+    or data is sent or received from the server. This results in a faster and
+    more visually appealing product for the user.
+  </p>
+  <p>
+    On a simple level, DOM elements can be manipulated with JavaScript, but to
+    interact with server-side databases or processes, we need a way to exchange
+    request and response messages between the client and server. Central to AJAX
+    functionality is the <code>XMLHttpRequest</code> object, which does exactly
+    this. A request is sent with the object's <code>open()</code> and <code>
+    send()</code> methods. The <code>open()</code> method takes three
+    parameters: <i>method</i> (GET or POST), <i>url</i> (server or file
+    location), and <i>async</i> (true or false). GET is faster than POST, but it
+    is uncached, limited in size, and unsecure. The <code>send()</code> method
+    can send parameter data to the target, and then the response is accessed
+    with: <code>onreadystatechange=function() {if(this.readyState==4 &&
+    this.status==200) DATA = this.response}</code>, where DATA is a variable to
+    hold the response, and <code>readyState==4&&status==200</code> indicates the
+    request was loaded and successful. The variable can then be applied to the
+    document, in the form of <code>element.innerHTML=DATA</code>, for example.
+  </p>
+  <p>
+    When parameters are required for a response, as in the case of server-side
+    data processing, GET and POST methods send data in different ways. For GET,
+    we append the data to the URL parameter in the <code>open()</code> using
+    the syntax: <code>URL?n1=v1&n2=v2&n3=v3...</code>, and the <code>send()
+    </code> takes no arguments. For POST, the data is instead given to the
+    <code>send()</code> method as the parameter, which is invisible to the user.
+    It is for this reason that GET is considered unsecure, and POST is not. In
+    addition, we require a <code>setRequestHeader(HEADER, VALUE)</code> method
+    for POST requests before <code>send()</code>, where HEADER is an HTTP header
+    name and VALUE is the header content. Finally, we should specify a response
+    type with the <code>responseType</code> property, which can be set to <i>
+    text</i>, <i>document</i>, or <i>json</i>. This should also be done before
+    <code>send()</code>.
+  </p>
+  <p>
+    One popular way to store and transport parameters is a format called JSON,
+    which stands for <i>JavaScript Object Notation</i>. It consists of a string
+    pattern of parameter names and values enclosed in curly braces: <code>
+    {n1:v1,n2:v2,n3:v3...}</code>. Since it is a plain text format with minimal
+    operators it is highly space and time efficient. Text can be converted to
+    and from JSON using the methods <code>JSON.parse()</code> and <code>
+    JSON.stringify()</code> for added flexability.
+  </p>
+  <p>
+    Now that you have a basic understanding of AJAX, let's do the final quiz!
+  </p>
+  <div class="center">
+    <button type="button" onclick="load('q6')">Quiz 6</button>
+    <button type="button" onclick="load('welcome')">Home</button>
+  </div>
+]]></element>
+<element id="q1"><![CDATA[
+  <h1>Quiz 1 - Intro to HTML</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) What tag encloses all the HTML content? </h2>
+    <input type="radio"/>    &lt;head&gt; <br/>
+    <input type="radio"/>    &lt;div&gt;  <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;html&gt; </span><br/>
+    <input type="radio"/>    &lt;body&gt; <br/>
+
+    <h2 class="question"> 2) What is the latest version of HTML? </h2>
+    <input type="radio"/>    There is only one version <br/>
+    <input type="radio"/>    HTML4                     <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             HTML5                     </span><br/>
+    <input type="radio"/>    XHTML                     <br/>
+
+    <h2 class="question"> 3) HTML Tables are best used for... </h2>
+    <input type="radio"/>    formatting websites <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             tabular data        </span><br/>
+    <input type="radio"/>    databases           <br/>
+    <input type="radio"/>    eating dinner       <br/>
+
+    <h2 class="question"> 4) The &lt;a&gt; tag is used for inserting... </h2>
+    <input type="radio"/>    images <br/>
+    <input type="radio"/>    titles <br/>
+    <input type="radio"/>    lists  <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             links  </span><br/>
+
+    <h2 class="question"> 5) Which tag requires additional attributes to be useful? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;img&gt;   </span><br/>
+    <input type="radio"/>    &lt;table&gt; <br/>
+    <input type="radio"/>    &lt;h1&gt;    <br/>
+    <input type="radio"/>    &lt;body&gt;  <br/>
+
+    <button type="button" onclick="gradeQuiz(1)">Submit</button>
+  </form>
+]]></element>
+<element id="q2"><![CDATA[
+  <h1>Quiz 2 - Intro to CSS</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) Which tag encloses an <i>internal</i> stylesheet? </h2>
+    <input type="radio"/>    &lt;internal&gt;   <br/>
+    <input type="radio"/>    &lt;stylesheet&gt; <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;style&gt;      </span><br/>
+    <input type="radio"/>    &lt;link&gt;       <br/>
+
+    <h2 class="question"> 2) CSS can be implemented in how many ways? </h2>
+    <input type="radio"/>    4 <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             3 </span><br/>
+    <input type="radio"/>    2 <br/>
+    <input type="radio"/>    1 <br/>
+
+    <h2 class="question"> 3) Which tag connects an external stylesheet? </h2>
+    <input type="radio"/>    &lt;external&gt;   <br/>
+    <input type="radio"/>    &lt;stylesheet&gt; <br/>
+    <input type="radio"/>    &lt;style&gt;      <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;link&gt;       </span><br/>
+
+    <h2 class="question"> 4) #red{color:red} affects which elements?</h2>
+    <input type="radio"/>    Elements with color=red <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             Elements with id=red </span><br/>
+    <input type="radio"/>    Elements with class=red <br/>
+    <input type="radio"/>    Elements that are not red <br/>
+
+    <h2 class="question"> 5) Whole blocks of code can be referenced with which tag? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;div&gt; </span><br/>
+    <input type="radio"/>    &lt;block&gt; <br/>
+    <input type="radio"/>    &lt;span&gt; <br/>
+    <input type="radio"/>    &lt;style&gt; <br/>
+
+    <button type="button" onclick="gradeQuiz(2)">Submit</button>
+  </form>
+]]></element>
+<element id="q3"><![CDATA[
+  <h1>Quiz 3 - Intro to JavaScript</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) JavaScript is enclosed in which tag? </h2>
+    <input type="radio"/>    &lt;head&gt;       <br/>
+    <input type="radio"/>    &lt;body&gt;       <br/>
+    <input type="radio"/>    &lt;javascript&gt; <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             &lt;script&gt;     </span><br/>
+
+    <h2 class="question"> 2) How many times does the following code repeat:
+    <code style="display:flex;justify-content:center;margin:5px 0 -5px;">
+        for(i=0; i>3; i++){...}</code></h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             0 </span><br/>
+    <input type="radio"/>    1 <br/>
+    <input type="radio"/>    2 <br/>
+    <input type="radio"/>    3 <br/>
+
+    <h2 class="question"> 3) Equality and relational expressions return what type of value? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             boolean </span><br/>
+    <input type="radio"/>    integer <br/>
+    <input type="radio"/>    string  <br/>
+    <input type="radio"/>    float   <br/>
+
+    <h2 class="question"> 4) Fill in the blank: <code>function ______ (){}</code> </h2>
+    <input type="radio"/>    x,y        <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             myFunction </span><br/>
+    <input type="radio"/>    code       <br/>
+    <input type="radio"/>    id         <br/>
+
+    <h2 class="question"> 5) JavaScript variables... </h2>
+    <input type="radio"/>    must be given a datatype <br/>
+    <input type="radio"/>    cannot change datatype <br/>
+    <input type="radio"/>    are given a default value <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             (none of the above) </span><br/>
+
+    <button type="button" onclick="gradeQuiz(3)">Submit</button>
+  </form>
+]]></element>
+<element id="q4"><![CDATA[
+  <h1>Quiz 4 - Javascript and DOM</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) DOM stands for... </h2>
+    <input type="radio"/>    Document Object Method   <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             Document Object Model    </span><br/>
+    <input type="radio"/>    Document Operator Method <br/>
+    <input type="radio"/>    Delicious Orange Martini <br/>
+
+    <h2 class="question"> 2) An element can access its own properties with what keyword? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             this       </span><br/>
+    <input type="radio"/>    properties <br/>
+    <input type="radio"/>    function   <br/>
+    <input type="radio"/>    element    <br/>
+
+    <h2 class="question"> 3) What does the following code mean:
+    <code style="display:flex;justify-content:center;margin:5px 0 -5px;">
+        document.getElementById(p).style.color=red</code></h2>
+    <input type="radio"/>    Colour paragraphs red <br/>
+    <input type="radio"/>    Colour text elements red <br/>
+    <input type="radio"/>    Colour 'p' characters red <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             Colour element with <code>id=p</code> red </span><br/>
+
+    <h2 class="question"> 4) Attributes <code>onload</code> and <code>onclick</code> refer to... </h2>
+    <input type="radio"/>    documents <br/>
+    <input type="radio"/>    functions <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             events    </span><br/>
+    <input type="radio"/>    objects   <br/>
+
+    <h2 class="question"> 5) The combination of HTML, CSS, JS and DOM is sometimes refered to as... </h2>
+    <input type="radio"/>    HCJD                     <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             DHTML                    </span><br/>
+    <input type="radio"/>    Advanced Web Development <br/>
+    <input type="radio"/>    Dynamic Web Development  <br/>
+
+    <button type="button" onclick="gradeQuiz(4)">Submit</button>
+  </form>
+]]></element>
+<element id="q5"><![CDATA[
+  <h1>Quiz 5 - Basic XML</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) What does XML stand for? </h2>
+    <input type="radio"/>    eXtra Meaning Language     <br/>
+    <input type="radio"/>    eXtensible Math Language   <br/>
+    <input type="radio"/>    eXtra Markup Language      <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             eXtensible Markup Language </span><br/>
+
+    <h2 class="question"> 2) What does XSD stand for? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             XML Schema Definition </span><br/>
+    <input type="radio"/>    XML Schema Document   <br/>
+    <input type="radio"/>    XML Style Definition  <br/>
+    <input type="radio"/>    XML Style Docmument   <br/>
+
+    <h2 class="question"> 3) What is an XSL document used for? </h2>
+    <input type="radio"/>    Styling data             <br/>
+    <input type="radio"/>    Transforming data into another format <br/>
+    <input type="radio"/>    Outputting selected data <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             All the above            </span><br/>
+
+    <h2 class="question"> 4) What attribute is used to declare a namespace? </h2>
+    <input type="radio"/>    namespace    <br/>
+    <input type="radio"/>    xmlnamespace <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             xmlns        </span><br/>
+    <input type="radio"/>    ns           <br/>
+
+    <h2 class="question"> 5) What attribute is used to output an element's content?  </h2>
+    <input type="radio"/>    output     <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             value-of   </span><br/>
+    <input type="radio"/>    content-of <br/>
+    <input type="radio"/>    print      <br/>
+
+    <button type="button" onclick="gradeQuiz(5)">Submit</button>
+  </form>
+]]></element>
+<element id="q6"><![CDATA[
+  <h1>Quiz 6 - Into to AJAX</h1>
+  <form name="quiz">
+
+    <h2 class="question"> 1) What does AJAX stand for? </h2>
+    <input type="radio"/>    Associated JavaScript And XML   <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             Asynchronous JavaScript And XML </span><br/>
+    <input type="radio"/>    Automatic JavaScript And XML    <br/>
+    <input type="radio"/>    Awesome JavaScript And XML      <br/>
+
+    <h2 class="question"> 2) What is <code>XMLHttpRequest</code> used for? </h2>
+    <input type="radio"/>    Sending data to the server     <br/>
+    <input type="radio"/>    Receiving data from the server <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             All the above                  </span><br/>
+    <input type="radio"/>    None of the above              <br/>
+
+    <h2 class="question"> 3) Although slower, POST may be preferred to GET because it is... </h2>
+    <input type="radio"/>    cached            <br/>
+    <input type="radio"/>    unlimited in size <br/>
+    <input type="radio"/>    secure            <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             All the above     </span><br/>
+
+    <h2 class="question"> 4) <code>{n1:v1,n2:v2,n3:v3...}</code> is an example if what? </h2>
+    <input type="radio" class="mark"/><span class="ans">
+                             JSON              </span><br/>
+    <input type="radio"/>    GET request       <br/>
+    <input type="radio"/>    POST request      <br/>
+    <input type="radio"/>    None of the above <br/>
+
+    <h2 class="question"> 5) What does JSON stand for? </h2>
+    <input type="radio"/>    Just Some Old Notation      <br/>
+    <input type="radio"/>    JavaScript Open Notation    <br/>
+    <input type="radio" class="mark"/><span class="ans">
+                             JavaScript Object Notation  </span><br/>
+    <input type="radio"/>    JavaScript Ordered Notation <br/>
+
+    <button type="button" onclick="gradeQuiz(6)">Submit</button>
+  </form>
+]]></element>
+<element id="results"><![CDATA[
+  <h1>Quiz <span id="qNum"></span>: <span id="score"></span>%</h1>
+  <h2>Answers:</h2>
+  <div id="answers"></div>
+  <button type="button" id="button">Continue</button>
+  ]]></element>
+</xml>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Learning Web Technologies</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../shared/styles.css"/>
+    <script>
+      var numQuizzes=6; // change this if a new quiz is added
+      var xhr=new XMLHttpRequest();
+      var xml;
+      xhr.open("get","content.xml");
+      xhr.responseType="document";
+      xhr.send();
+      xhr.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200)
+          xml=this.response;
+      };
+      function load(id) {
+        if(xml!=null)
+          content.innerHTML=
+              xml.getElementById("nav").textContent+
+              xml.getElementById(id).textContent;
+        else
+          window.setTimeout(load, 20, id);
+      }
+      function gradeQuiz(num){
+        var numQuestions=document.querySelectorAll('.question').length;
+        var numCorrect=document.querySelectorAll('.mark:checked').length;
+        var grade=parseInt(100*numCorrect/numQuestions);
+        var ans="";
+        for(i=0; i<numQuestions; i++)
+          ans+="<h3 style='margin-left:0'>"+
+               document.getElementsByClassName("question")[i].innerHTML+"</h3>"+
+               "<p>"+document.getElementsByClassName("ans")[i].innerHTML+"</p>";
+        load("results");
+        qNum.outerHTML=num;
+        score.outerHTML=grade;
+        answers.outerHTML=ans;
+        // setup button
+        if(num!=numQuizzes)
+          button.setAttribute("onclick","load('s"+(num+1)+"');");
+        else
+          button.style.display="none";
+      }
+    </script>
+    <style>
+      #content{
+        padding-bottom: 1px;
+      }
+      #qmenu{
+        z-index: 1;
+        position: relative;
+        left: 0;
+        width: 100px;
+        padding-bottom: 1em;
+      }
+      #qlinks{
+        display: none;
+        width: 100%;
+        margin: 0;
+        padding: 2px 0 5px 10px;
+        background-color: rgba(0,0,0,0.8);
+      }
+      #qmenu:hover #qlinks{
+        position: absolute;
+        top: 1.5em;
+        left: -5px;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9em;
+      }
+      input{
+        margin: 0 1em .5em;
+      }
+      .center{
+        display: flex;
+        justify-content: center;
+      }
+      .center *{
+        display: inline;
+        margin: 20px;
+      }
+      button{
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body onload="load('welcome')">
+    <img id="banner" src="../shared/banner.jpg" alt=""/>
+    <div id="content"></div>
+    <footer>&copy;2019 Jonah Mamakeesic</footer>
+  </body>
+</html>

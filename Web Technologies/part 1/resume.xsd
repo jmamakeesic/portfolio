@@ -1,0 +1,119 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<schema
+  xmlns:x = "http://www.w3.org/2001/XMLSchema"
+  xmlns = "."
+  targetNamespace = ".">
+
+  <x:element name="resume" type="Resume"/>
+
+  <x:complexType name="Resume">
+    <x:sequence>
+      <x:element name="name"        type="Name"/>
+      <x:element name="contact"     type="Contact"/>
+      <x:element name="description" type="Description"/>
+      <x:element name="skills"      type="Skills"/>
+      <x:element name="qualities"   type="Qualities"/>
+      <x:element name="education"   type="Education"/>
+      <x:element name="experience"  type="Experience"/>
+    </x:sequence>
+  </x:complexType>
+
+  <x:simpleType name="Name">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:complexType name="Contact">
+    <x:sequence>
+      <x:element name="phone"   type="Phone"/>
+      <x:element name="email"   type="Email"/>
+      <x:element name="website" type="Website"/>
+      <x:element name="mail"    type="Mail"/>
+    </x:sequence>
+  </x:complexType>
+  <x:simpleType name="Phone">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Email">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Website">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Mail">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:simpleType name="Description">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:complexType name="Skills">
+    <x:sequence>
+      <x:element name="sk" type="Sk"/>
+    </x:sequence>
+  </x:complexType>
+  <x:simpleType name="Sk">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:complexType name="Qualities">
+    <x:sequence>
+      <x:element name="qu" type="Qu"/>
+    </x:sequence>
+  </x:complexType>
+  <x:simpleType name="Qu">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:complexType name="Education">
+    <x:sequence>
+      <x:element name="program" type="Program"/>
+    </x:sequence>
+  </x:complexType>
+  <x:complexType name="Program">
+    <x:sequence>
+      <x:element name="pname"    type="Pname"/>
+      <x:element name="year"     type="Year"/>
+      <x:element name="school"   type="School"/>
+      <x:element name="location" type="Location"/>
+      <x:element name="detail"   type="Detail"/>
+    </x:sequence>
+  </x:complexType>
+  <x:simpleType name="Pname">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Year">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="School">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Location">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Detail">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+  <x:complexType name="Experience">
+    <x:sequence>
+      <x:element name="job" type="Job"/>
+    </x:sequence>
+  </x:complexType>
+  <x:complexType name="Job">
+    <x:sequence>
+      <x:element name="jtitle"   type="Jtitle"/>
+      <x:element name="year"     type="Year"/>
+      <x:element name="company"  type="Company"/>
+      <x:element name="location" type="Location"/>
+      <x:element name="detail"   type="Detail"/>
+    </x:sequence>
+  </x:complexType>
+  <x:simpleType name="Jtitle">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+  <x:simpleType name="Company">
+    <x:restriction base="x:string"/>
+  </x:simpleType>
+
+</schema>

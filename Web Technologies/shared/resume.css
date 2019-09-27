@@ -1,0 +1,76 @@
+#resume{
+  padding: 30px 75px;
+}
+#resume h2{
+  color: black;
+}
+#name{
+  font-family: Gill-Sans, sans-serif;
+  text-transform: uppercase;
+  font-size: 3em;
+  text-align: center;
+  padding-bottom: 25px;
+}
+#description, #skills, #qualities, #education, #experience{
+  padding: 0;
+}
+#description, #skills, #qualities, #education, #experience{
+  margin-left: 1em;
+}
+#contact{
+  display: inline;
+}
+#contact td{
+  width: 325px;
+}
+svg{
+  position: relative;
+  top: -2px;
+}
+#mail {
+  white-space: pre-line;
+}
+#mail{
+  text-align: right;
+}
+#description{ // Summary
+  font-style: italic;
+}
+#skills{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.qu::before, .detail::before{
+  content: "▸ ";
+}
+.school, .company, .location{
+  font-style: italic;
+}
+.school::after, .company::after{
+  content: ";";
+  margin-right: 0.25em;
+}
+.year{
+  width: 33%;
+  text-align: right;
+  font-weight: bold;
+}
+.program, .job{
+  padding-bottom: 10px;
+}
+.pname, .jtitle{
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  width: 66%;
+  display: inline-block;
+}
+.company, .school, .location, .year{
+  display: inline-block;
+}
+.detail{
+  font-size: 0.8em;
+  text-indent: -1.1em;
+  margin-left: 1.1em;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Technologies</title>
+    <link rel="stylesheet" href="shared/styles.css">
+    <style>
+      #content{
+        padding-bottom: 25px;
+      }
+      ul{
+        margin-left: 40px;
+        list-style-type: none;
+        font-family: monospace;
+        font-size: 16px;
+        line-height: 1.5em;
+      }
+      ul ul{
+        margin-left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="banner" src="shared/banner.jpg"/>
+    <div id="content">
+      <h1>Web Technologies</h1>
+
+      <h2>Project Details</h2>
+      <p>
+        This is a demonstration of HTML5, CSS3, JavaScript, XML, and AJAX.
+      </p><p>
+        <b>Part 1</b> is a resume written in XML using a custom Schema Definition
+        and XSL Transformations.
+      </p><p>
+        <b>Part 2</b> is an AJAX application which teaches web technologies
+        through tutorials and quizzes.
+      </p><p>
+        <b>Part 3</b> is a slideshow application using HTML5 canvas.
+      </p><p>
+        <b>Part 4</b> is a utility application which perfoms various mathematical
+        calculations.
+      </p>
+
+      <h2>Analysis and Design</h2>
+      <p>
+        <b>Part 1</b> consists of 3 data files (XML, XSD, XSL) and a general
+        stylesheet (CSS). The XML contains my professional summary in hierarchical
+        format with the <span style="font-family:monospace;font-size:16px;">
+        PARENT:child</span> relationships below. The XSD file provides a formal
+        definition of the above relationships, and the XSL file displays all the
+        data in HTML format.
+      </p>
+      <ul style="margin-bottom:10px;"><li>
+        RESUME:Name,Contact,Description,Skills,Qualities,Education,Experience</li><ul><li>
+          CONTACT:Email,Phone,Mail</li><li>
+          SKILLS:Skill</li><li>
+          QUALITIES:Quality</li><li>
+          EDUCATION:Program</li><ul><li>
+            PROGRAM:Name,Year,School,Location,Detail</li></ul><li>
+          EXPERIENCE:Job</li><ul><li>
+            JOB:Title,Year,Company,Location,Detail</li></ul></ul>
+      </ul>
+      <p>
+        <b>Part 2</b> consists of a single-page web application using AJAX to
+        navigate through 6 web development lessons and graded quizzes. It uses an
+        external XML document containing the different content sections of the
+        application and internal JavaScript to manipulate the page and grade the
+        quizzes.
+      </p>
+      <p>
+        <b>Part 3</b> uses an HTML5 canvas to create a photo slideshow. JavaScript
+        is used to switch photos with three possible transition styles: slide,
+        dissolve, and fade. The slideshow also has 'start', 'stop', 'back', 'next',
+        and 'random' transport functions, and photo captions.
+      </p>
+      <p>
+        <b>Part 4</b> is a collection of three utility tools for measurement
+        conversion, mortgage calculation, and room mode calculation. They take user
+        input and then output formula-based results in realtime. The measurement
+        utility converts between metric and imperial weights, lengths, areas, and
+        volumes. The mortgage utility calculates monthly payment amounts and
+        interest totals based on a compound interest formula using sale price, down
+        payment, loan term, and annual interest rate variables. The room mode
+        utility finds the resonant frequencies of highest interest in a rectangular
+        space using a wavelength-to-frequency formula with length, width, and height
+        variables measured in feet.
+      </p>
+
+      <h2>Documentation</h2>
+      <p>
+        This assignment was tested in Internet Explorer, Opera, Firefox, and Chrome.
+        All parts are fully functional in these browsers except for <b>Part 2</b>,
+        which does not load in Internet Explorer due to the XMLHttpRequest not
+        behaving as expected.
+      </p>
+      <p>
+        In <b>Part 4</b> is a Room Mode calculator, which takes the
+        dimensions of a rectangular room in feet, and outputs the axial resonant
+        frequencies of the room below 300Hz. These frequencies have wavelengths that
+        divisors of the room dimensions, and distort the sound inside. The equation
+        if F=S/W, F is frequency in Hz, S is the speed of sound in feet per second,
+        and W is the wavelength in feet. The speed of sound is 1130 feet per second
+        in typical environments. This tool is useful in audio recording and playback
+        contexts, as resonant frequencies will be artifically louder and quieter in
+        certain areas of the room.
+      </p>
+
+      <h2>Content</h2>
+      <p>
+        <a href="part 1/resume.xml"> Part 1 - XML Resume               </a><br/>
+        <a href="part 2/index.htm">  Part 2 - Learning Web Technologies</a><br/>
+        <a href="part 3/index.htm">  Part 3 - Slideshow                </a><br/>
+        <a href="part 4/index.htm">  Part 4 - Utilities                </a>
+      </p>
+
+    </div>
+  </body>
+</html>

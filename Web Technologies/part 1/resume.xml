@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="application/xml" href="resume.xsl"?>
+<resume
+  xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation = ". resume.xsd">
+
+  <name>Jonah Mamakeesic</name>
+
+  <contact>
+    <email>my@email.com</email>
+    <phone>123-456-7890</phone>
+    <mail> 123 My Road
+           Victoria BC, A1A 1A1</mail>
+  </contact>
+
+  <description>
+    Computer science graduate with audio engineering / media production background
+  </description>
+
+  <skills>
+    <sk>Java</sk>
+    <sk>C/C++</sk>
+    <sk>HTML/CSS</sk>
+    <sk>JavaScript</sk>
+    <sk>PHP</sk>
+    <sk>SQL</sk>
+    <sk>Graphic/Audio Design</sk>
+  </skills>
+
+  <qualities>
+    <qu>Technically minded and analytical; excels at troubleshooting and optimization</qu>
+    <qu>Proactive and dependable; passion to learn and master new skills</qu>
+    <qu>Friendly and professional; excellent written and verbal communication skills</qu>
+    <qu>Precise and meticulous; critical thinker and creative problem solver</qu>
+  </qualities>
+
+  <education>
+    <program>
+      <pname>Bachelor of Computing Science</pname>
+      <year>2019</year>
+      <school>Thompson Rivers University</school>
+      <location>Kamloops, BC</location>
+      <detail>Studying computer graphics, game design/development, artificial
+          intelligence, web development</detail>
+    </program>
+    <program>
+      <pname>Audio Post Production Certificate</pname>
+      <year>2012</year>
+      <school>Fanshawe College</school>
+      <location>London, ON</location>
+      <detail>Concentrated on sound design, music, and voice aspects of linear
+          and interactive media</detail>
+    </program>
+    <program>
+      <pname>Music Industry Arts</pname>
+      <year>2011</year>
+      <school>Fanshawe College</school>
+      <location>London, ON</location>
+      <detail>Trained in music theory, audio engineering, production, and mixing</detail>
+    </program>
+  </education>
+
+  <experience>
+    <job>
+      <jtitle>Web Designer</jtitle>
+      <year>2018</year>
+      <company>Falle Apparel</company>
+      <location>Victoria, BC</location>
+      <detail>Designed and built a responsive website in HTML / CSS / JavaScript
+          to client specification</detail>
+      <detail>Implemented ecommerce and PHP mail functionality</detail>
+    </job>
+    <job>
+      <jtitle>Audio Producer / Engineer</jtitle>
+      <year>2005 - present</year>
+      <company>Freelance</company>
+      <location>Victoria, BC</location>
+      <detail>Offer production, recording, editing services in the local and
+          online entertainment industry</detail>
+      <detail>Provide high level of professionalism and customer service to
+          acquire and maintain clientele</detail>
+    </job>
+    <job>
+      <jtitle>Pastry Cook</jtitle>
+      <year>2013 - 2018</year>
+      <company>Murchie's Tea and Coffee</company>
+      <location>Victoria, BC</location>
+      <detail>Produced a wide variety of baked goods with consistency and efficiency</detail>
+      <detail>Prioritized daily tasks, tracked inventory, trained new staff</detail>
+    </job>
+    <job>
+      <jtitle>Data Manager</jtitle>
+      <year>2010 - 2012</year>
+      <company>WorldPlants.ca</company>
+      <location>London, ON</location>
+      <detail>Developed an organisation system for 10,000 botanical images and documents</detail>
+      <detail>Maintained a growing database of 2,200 detailed plant profiles</detail>
+    </job>
+  </experience>
+
+</resume>
