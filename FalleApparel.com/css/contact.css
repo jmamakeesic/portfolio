@@ -1,0 +1,60 @@
+/*
+  Source:
+  https://www.formget.com/javascript-contact-form/
+*/
+
+form {
+  margin-bottom: 20px;
+}
+div#main{
+  width:800px;
+  height:450px;
+  margin:0 auto;
+}
+div#form_sample{
+  color:#fff;
+  background-color: black;
+  text-align: center;
+  width: 100%;
+  padding: 15px 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: black solid 5px;
+  box-shadow: 0 5px 15px black;
+  border-radius: 6px;
+}
+#main h1{
+  margin-top:40px;
+}
+label {
+  float:left;
+  font-size: 16px;
+  color:#fff;
+}
+input[type="text"]{
+  width:100%;
+  margin-top:10px;
+  height:35px;
+  margin-bottom:25px;
+  padding:10px;
+  border:3px solid #333
+}
+textarea{
+  width:100%;
+  border:3px solid #333 ;
+  padding:10px;
+  margin-bottom:25px;
+  margin-top:10px;
+  height:100px;
+  resize:none
+}
+input[type="submit"]{
+  width:100%;
+  padding:10px 45px;
+  background-color:#333;
+  border:none;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+}

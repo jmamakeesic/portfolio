@@ -1,0 +1,77 @@
+﻿/*
+  Homepage for FΛLLΣ Apparel
+  Author: Jonah Mamakeesic
+  Date:   17 April 2018
+
+  Filename: mobile.css
+*/
+
+/* General Styles */
+h1 { /* Used for primary section headings */
+  letter-spacing: 2vw;
+}
+h2 { /* used for secondary section headings */
+  font-size: 2.5vw;
+  letter-spacing: 0.5vw;
+}
+h3 { /* Used in header graphics */
+  font-size: 2.7vw;
+}
+p {
+  font-size: 12px;
+}
+
+/* Header Area */
+#bgframe {
+  height: 71vw;
+}
+#bg {
+  background: url(../images/bg_mobile.jpg);
+  background-size: 100vw 77.5vw;
+}
+#topframe {
+  height: 71vw;
+}
+#model {
+  left: 10%;
+  width: 30%;
+  bottom: -2px;
+}
+#logoframe {
+  left: 45%;
+  width: 45%;
+  height: 43vw;
+}
+
+/* Content Area */
+#first {
+  margin-top: 79%;
+}
+@media only screen and (max-width: 560px) { .catalog li {
+  font-size: 10px;
+  padding: 5px;}
+}
+.constrain { /* Limit content width */
+  padding: 0;
+}
+
+/* Footer Area */
+#sysdate {display: none;}
+#lastmod {display: none;}
+
+/* simpleCart style */
+@media only screen and (max-width: 560px) {
+  .simpleCart_shelfItem {font-size: 11px;}
+  .item_size {font-size: 11px; width: 70px;}
+  .item_color {font-size: 11px; width: 70px;}
+  .item_quantity {font-size: 11px; width: 12px;}
+  .item_add {font-size: 11px;}
+}
+.simpleCart_items {
+  font-size: 12px;
+}
+#cartTable {
+  width:450px;}
+  @media only screen and (max-width: 474px) {#cartTable {
+    width:95%}
+}

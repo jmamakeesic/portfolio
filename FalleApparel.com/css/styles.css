@@ -1,0 +1,318 @@
+/*
+  Homepage for FΛLLΣ Apparel
+  Author:   Jonah Mamakeesic
+  Date:     17 April 2018
+
+  Filename: styles.css
+*/
+
+/* General Styles */
+@font-face {
+  font-family: GeosansLight;
+  src: url(../fonts/GeosansLight.ttf) format('truetype');
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: black;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+header, footer, article, nav {
+  display: block;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: black;
+  margin-top: 50px;
+}
+table {
+  width: 100%;
+}
+unused fonts {
+  font-family: 'Playfair Display', 'Holtwood One SC', 'Cinzel', 'Anton';
+  font-family: 'Josefin Slab', 'Quicksand', 'Open Sans', 'Century Gothic';
+}
+p, li {
+}
+h1 { /* Used for primary section headings */
+color: white;
+  font-family: 'GeosansLight', sans-serif;
+  background-color: black;
+  letter-spacing: 20px;
+  word-spacing: 10px;
+  font-size: 3vw;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font-weight: 100;
+}
+h2 { /* used for secondary section headings */
+color: white;
+  font-family: 'GeosansLight', sans-serif;
+  background-color: black;
+  letter-spacing: 0.5vw;
+  text-transform: uppercase;
+  padding: 10px 0;
+  font-weight: 100;
+  font-size: 2vw;
+}
+h3 { /* Used in header graphics */
+  font-family: 'GeosansLight', sans-serif;
+  font-size: 1.75vw;
+  letter-spacing: 0.5vw;
+  text-transform: uppercase;
+}
+hr {
+  height: 2px;
+  width: 80%;
+  margin: 1vw auto;
+  align-self: center;
+  background-color: #ccc;
+}
+.spacer {
+  height: 10px;
+}
+
+/* Menu Area */
+#menubar {
+  padding: 0;
+  text-align: center;
+  position: fixed;
+  height: 50px;
+  top: 0;
+  background-color: black;
+  color: white;
+  width: 100%;
+  z-index: 2;
+}
+#menu_l {
+  text-align: left;
+  width: 48%;
+}
+#menu_c {
+  text-align: center;
+  width: 110px;
+}
+#menu_r {
+  width: 48%;
+  text-align: right;
+  padding: 7px 7px 0 0;
+  font-size: 18px;
+}
+#menu_r a{
+  text-decoration: none;
+  color: white;
+}
+#dropmenu { /* Dropdown menu goes here */
+  width: 50px;
+  height: 0px;
+}
+#logo_top {
+  margin-top: 10px;
+}
+#items {
+  display: inline-block;
+  top: 15px;
+  color: #bbb;
+}
+#cart {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  margin: 3px 5px 3px 0;
+  opacity: 0.65;
+  filter: alpha(opacity=65);} /* For IE8 and earlier */
+  #cart:hover {
+    opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+/* Header Area */
+#bgframe {
+  position: fixed;
+  height: 40vw;
+  width: 100%;
+  top: 50px;
+  z-index: -1;
+}
+#bg {
+  height: 100%;
+  background: url(../images/bg.jpg) no-repeat fixed;
+  background-size: 100vw 42.5vw;
+}
+#topframe {
+  position: absolute;
+  height: 40vw;
+  width: 100%;
+  top: 50px;
+}
+#model {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 15%;
+}
+#logoframe {
+  text-align: left;
+  font-size: 1.5vw;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 34%;
+  height: 26vw;
+}
+#logo {
+  width: 100%;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* Content Area */
+.content {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+#first {
+  margin-top: 42.5%;
+  background-color: #ddd;
+}
+.catalog {
+  position: relative;
+}
+.catalog ul {
+  background-color: #fff;
+  list-style-position: inside;
+  font-size: 14px;
+  letter-spacing: 0.1vw;
+  font-weight: 100;
+}
+.catalog h2 {
+  background-color: #777;
+}
+@media only screen and (min-width: 1400px) { .catalog h2 {
+  font-size: 28px;}
+}
+.catalog li {
+  padding: 5px 10px;
+  text-align: left;
+  font-size: 1.7vw;}
+  @media only screen and (min-width: 1400px) { .catalog li {
+    font-size: 24px;}
+}
+.catalog td {
+  width: 50%;
+}
+.photo {
+  display: inline-block;
+  margin: 0 -2px -4px;
+  width: 100%;}
+  .constrain { /* Limit content width */
+    max-width: 1388px;
+    padding: 0 94px;
+    margin: 0 auto;
+}
+#second {
+  position: relative;
+  background-color: #333;
+}
+.icoframe { /* Dynamic icon sizes */
+  border: black solid 5px;
+  box-shadow: 0 5px 15px black;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
+  margin: 14px;}
+  @media only screen and (min-width: 1099px) { .icoframe {
+    width: 250px;
+    height: 250px;
+    margin: 15px 38px;}}
+  @media only screen and (min-width: 1399px) { .icoframe {
+    width: 330px;
+    height: 330px;
+    margin: 20px 52px;}
+}
+.category { /* shift within frame on hover for highlight effect */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200%;}
+  #hat, #shirt, #hood {left: 0;}
+  #hat:hover, #shirt:hover, #hood:hover {left: -100%;
+}
+
+/* Footer Area */
+footer {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  background-color: black;
+  color: #bbb;
+  position: relative;
+}
+.social {
+  vertical-align: middle;
+}
+footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+footer a:visited {
+  color: #bbb;
+}
+footer a:hover {
+  color: white;
+}
+footer a:active {
+  color: white;
+}
+#lastmod {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 5px 10px;
+  color: #777;
+  font-style: oblique;
+}
+
+/* Cart */
+#simpleCart_quantity {
+  color: white;
+}
+#cartTable {
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+  width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height: 24px;
+}
+.simpleCart_empty, .simpleCart_checkout {
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  border: solid black 1px;
+}
+.simpleCart_empty {
+  float: right;
+}
+.simpleCart_checkout {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #fff;
+  background-color: #333;
+  outline: none;
+}
