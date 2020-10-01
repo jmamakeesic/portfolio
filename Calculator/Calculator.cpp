@@ -9,7 +9,7 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
-#include "Calculator.h"
+#include <Calculator.h>
 using namespace std;
 
 Calculator::Calculator(){}
@@ -52,12 +52,12 @@ void Calculator::calculate(int selection){
     if (selection<5){
         cout << "Enter two numbers: ";
         cin >> x >> y;
-    }else{
+    }else if(selection>5&&selection<7){
         cout << "Enter a number: ";
         cin >> x;
     }
     
-    // print calculation result
+    // print calculated result
     switch(selection){ 
         case 1: cout<<x<<" + "<<y<<" = "<<calc.add(x,y)<<"\n\n";
                 break;
@@ -70,6 +70,10 @@ void Calculator::calculate(int selection){
         case 5: cout<<x<<"^2 = "<<calc.square(x)<<"\n\n";
                 break;
         case 6: cout<<"sqrt("<<x<<") = "<<calc.squareRoot(x)<<"\n\n";
+                break;
+        case 7: cout<<"Scientific Mode is coming soon."<<"\n\n";
+                break;
+        case 8: cout<<"You are done now!"<<continue<<"\n\n";
                 break;
     }
 }
