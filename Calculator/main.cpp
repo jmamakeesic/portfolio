@@ -6,20 +6,20 @@
  * Assignment: Final Project
  */
 
-#include "Calculator.h"
+#include "Calculator.h"                               
 #include "ScientificCalculator.h"
-#include <iostream>
+#include <iostream>                                    //including header files
 
 using namespace std;
 
-int main() {
+int main() {                                           //driver function
     Calculator basicCalc;
     ScientificCalculator sciCalc;
     Calculator* calc = &sciCalc;
     int selection, calcType, switchType, exit;
     const int BASIC=1, SCI=2;
     
-    cout << "\nWelcome to Calculator!\n";
+    cout << "\nWelcome to Calculator!\n";               //calculator menu
     cout << "----------------------\n" <<
             " 1) Basic\n" <<
             " 2) Scientific\n" <<
