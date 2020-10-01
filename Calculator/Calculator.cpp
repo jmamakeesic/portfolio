@@ -15,18 +15,20 @@ using namespace std;
 Calculator::Calculator(){}
 Calculator::~Calculator(){}
 
-double Calculator::add(double x, double y)
+double Calculator::add(double x, double y) //For adding
     {return (x+y);}
-double Calculator::subtract(double x, double y)
+double Calculator::subtract(double x, double y)//For subtracting
     {return (x-y);}
-double Calculator::multiply(double x, double y)
+double Calculator::multiply(double x, double y)//For multiplying
     {return (x*y);}
-double Calculator::divide(double x, double y)
+double Calculator::divide(double x, double y)//For dividing
     {return (x/y);}
-double Calculator::square(double x)
+double Calculator::square(double x)//For square
     {return (x*x);}
-double Calculator::squareRoot(double x)
+double Calculator::squareRoot(double x)//For squareroot
     {return (sqrt(x));}
+double Calculator::modulus(double x, double y)//For remainder
+    {return (x%y);}
 
 //print basic math calculation menu
 void Calculator::printMenu(){
